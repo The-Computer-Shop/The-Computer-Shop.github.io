@@ -1,62 +1,51 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const filterGroups = document.querySelectorAll(".filter-group");
-  const filterHeaders = document.querySelectorAll(".filter-header");
-  const filterInputs = document.querySelectorAll('.filter-options input[type="checkbox"]');
-  const buildCards = document.querySelectorAll(".build-card");
+  const toggles = document.querySelectorAll(".filter-toggle");
+  const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
+  const cards = document.querySelectorAll(".product-card");
   const noResults = document.getElementById("no-results");
 
-  filterHeaders.forEach((button) => {
-    button.addEventListener("click", () => {
-      const group = button.closest(".filter-group");
-      group.classList.toggle("open");
+  toggles.forEach((toggle) => {
+    toggle.addEventListener("click", () => {
+      const item = toggle.parentElement;
+      item.classList.toggle("open");
     });
   });
 
-  function getSelectedValues(name) {
+  function getChecked(name) {
     return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(
       (input) => input.value
     );
   }
 
-  function matchesFilter(cardValue, selectedValues) {
-    if (selectedValues.length === 0) return true;
-    return selectedValues.includes(cardValue);
-  }
-
   function applyFilters() {
-    const selectedRam = getSelectedValues("ram");
-    const selectedCpu = getSelectedValues("cpu");
-    const selectedGpu = getSelectedValues("gpu");
+    const selectedRam = getChecked("ram");
+    const selectedCpu = getChecked("cpu");
+    const selectedGpu = getChecked("gpu");
 
-    let visibleCount = 0;
+    let visible = 0;
 
-    buildCards.forEach((card) => {
+    cards.forEach((card) => {
       const ram = card.dataset.ram;
       const cpu = card.dataset.cpu;
       const gpu = card.dataset.gpu;
 
-      const show =
-        matchesFilter(ram, selectedRam) &&
-        matchesFilter(cpu, selectedCpu) &&
-        matchesFilter(gpu, selectedGpu);
+      const ramMatch = selectedRam.length === 0 || selectedRam.includes(ram);
+      const cpuMatch = selectedCpu.length === 0 || selectedCpu.includes(cpu);
+      const gpuMatch = selectedGpu.length === 0 || selectedGpu.includes(gpu);
+
+      const show = ramMatch && cpuMatch && gpuMatch;
 
       card.style.display = show ? "block" : "none";
 
-      if (show) visibleCount++;
+      if (show) visible++;
     });
 
-    if (noResults) {
-      noResults.style.display = visibleCount === 0 ? "block" : "none";
-    }
+    noResults.style.display = visible === 0 ? "block" : "none";
   }
 
-  filterInputs.forEach((input) => {
+  inputs.forEach((input) => {
     input.addEventListener("change", applyFilters);
   });
-
-  if (filterGroups.length > 0) {
-    filterGroups[0].classList.add("open");
-  }
 
   applyFilters();
 });
