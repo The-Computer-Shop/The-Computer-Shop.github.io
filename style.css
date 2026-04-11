@@ -266,3 +266,157 @@ body {
     grid-template-columns: 1fr;
   }
 }
+.signature-page {
+  min-height: 100vh;
+  background: #000;
+  padding-top: 120px;
+}
+
+.signature-header {
+  text-align: center;
+  padding: 20px 60px 35px;
+}
+
+.signature-header h1 {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.signature-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  padding: 0 60px 60px;
+  align-items: start;
+}
+
+.filters-panel {
+  background: #1f1f1f;
+  padding: 0 28px;
+}
+
+.filter-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.filter-item:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.filter-toggle {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px 0;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: left;
+}
+
+.chevron {
+  font-size: 28px;
+  line-height: 1;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.filter-content {
+  display: none;
+  padding: 0 0 20px 0;
+}
+
+.filter-item.open .filter-content {
+  display: block;
+}
+
+.filter-item.open .chevron {
+  transform: rotate(180deg);
+}
+
+.filter-content label {
+  display: block;
+  color: white;
+  font-size: 15px;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.filter-content input {
+  margin-right: 10px;
+}
+
+.signature-products {
+  min-width: 0;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.product-specs {
+  padding: 16px;
+  color: white;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.no-results {
+  display: none;
+  margin-top: 20px;
+  padding: 16px;
+  color: white;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1450px) {
+  .products-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .signature-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .signature-layout {
+    padding: 0 25px 40px;
+  }
+
+  .filters-panel {
+    padding: 0 20px;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}
