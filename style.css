@@ -101,7 +101,7 @@ body {
 
 .builds-hero {
   text-align: center;
-  padding: 40px 60px 20px;
+  padding: 20px 60px 30px;
 }
 
 .page-title {
@@ -110,13 +110,80 @@ body {
   text-transform: uppercase;
 }
 
-.builds-grid-section {
-  padding: 30px 60px 60px;
+.builds-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 35px;
+  padding: 10px 60px 60px;
+  align-items: start;
+}
+
+.filters-sidebar {
+  background: #1a1a1a;
+  padding: 10px 0;
+}
+
+.filter-group {
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.filter-group:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.filter-header {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 24px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: left;
+  cursor: pointer;
+}
+
+.filter-arrow {
+  font-size: 24px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.filter-options {
+  display: none;
+  padding: 0 26px 22px;
+}
+
+.filter-group.open .filter-options {
+  display: block;
+}
+
+.filter-group.open .filter-arrow {
+  transform: rotate(180deg);
+}
+
+.filter-options label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+}
+
+.filter-options input {
+  margin-right: 10px;
+}
+
+.builds-content {
+  min-width: 0;
 }
 
 .builds-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
 }
 
@@ -140,9 +207,27 @@ body {
   color: white;
 }
 
-@media (max-width: 1100px) {
+.no-results {
+  display: none;
+  margin-top: 20px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 1450px) {
   .builds-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  .builds-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .builds-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -173,8 +258,8 @@ body {
     font-size: 18px;
   }
 
-  .builds-grid-section {
-    padding: 20px 25px 40px;
+  .builds-layout {
+    padding: 10px 25px 40px;
   }
 
   .builds-grid {
