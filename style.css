@@ -286,11 +286,12 @@ body {
 
 .signature-layout {
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 40px;
-  padding: 0 60px 60px;
+  grid-template-columns: 280px 1fr;
+  gap: 50px;
+  max-width: 1500px;
+  margin: 260px auto 0;
+  padding: 0 120px 60px;
   align-items: start;
-  margin-top: 260px;
 }
 
 .filters-panel {
@@ -370,8 +371,8 @@ body {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
 }
 
 .product-card {
