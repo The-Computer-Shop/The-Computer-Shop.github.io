@@ -380,7 +380,12 @@ body {
   object-fit: cover;
   display: block;
 }
-
+.product-name {
+  padding: 14px 16px 6px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
 .product-specs {
   padding: 16px;
   color: white;
