@@ -386,13 +386,16 @@ body {
   display: block;
 }
 .product-name {
-  padding: 14px 16px 6px;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  padding: 0;
   font-size: 18px;
   font-weight: bold;
   color: white;
 }
+
 .product-specs {
-  padding: 16px 0 16px 0;
+  padding: 0;
   color: white;
   font-size: 14px;
   line-height: 1.5;
