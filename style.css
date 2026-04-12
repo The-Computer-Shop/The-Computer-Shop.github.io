@@ -298,33 +298,38 @@ body {
 }
 
 .filter-item {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .filter-item:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .filter-toggle {
   width: 100%;
   background: transparent;
   border: none;
-  color: white;
+  color: rgba(255, 255, 255, 0.92);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 30px 0;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 17px;
+  font-weight: 600;
   cursor: pointer;
   text-align: left;
 }
 
 .chevron {
-  font-size: 28px;
-  line-height: 1;
-  transform: rotate(0deg);
+  width: 10px;
+  height: 10px;
+  border-right: 1.5px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.9);
+  transform: rotate(45deg);
   transition: transform 0.2s ease;
+  flex-shrink: 0;
+  margin-right: 4px;
+  font-size: 0;
 }
 
 .filter-content {
@@ -337,7 +342,7 @@ body {
 }
 
 .filter-item.open .chevron {
-  transform: rotate(180deg);
+  transform: rotate(225deg);
 }
 
 .filter-content label {
