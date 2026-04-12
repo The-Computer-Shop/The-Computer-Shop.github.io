@@ -387,7 +387,7 @@ body {
   color: white;
 }
 .product-specs {
-  padding: 16px;
+  padding: 16px 0 16px 0;
   color: white;
   font-size: 14px;
   line-height: 1.5;
