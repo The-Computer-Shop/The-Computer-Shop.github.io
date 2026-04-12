@@ -342,18 +342,24 @@ body {
 
 .filter-content label {
   display: block;
-  color: white;
+  color: rgba(255, 255, 255, 0.88);
   font-size: 15px;
   margin-bottom: 14px;
   cursor: pointer;
+  user-select: none;
 }
 
 .filter-content input {
-  margin-right: 10px;
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
 
-.signature-products {
-  min-width: 0;
+.filter-content label:has(input:checked) {
+  color: white;
+  font-weight: bold;
 }
 
 .products-grid {
