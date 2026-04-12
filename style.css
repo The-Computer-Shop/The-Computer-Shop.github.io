@@ -290,6 +290,7 @@ body {
   gap: 40px;
   padding: 0 60px 60px;
   align-items: start;
+  margin-top: 260px;
 }
 
 .filters-panel {
