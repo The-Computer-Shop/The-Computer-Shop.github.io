@@ -12,12 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   function getChecked(name) {
-    return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(
-      (input) => input.value
-    );
+    return Array.from(
+      document.querySelectorAll(`input[name="${name}"]:checked`)
+    ).map((input) => input.value);
   }
 
   function applyFilters() {
+    if (!cards.length) return;
+
     const selectedRam = getChecked("ram");
     const selectedCpu = getChecked("cpu");
     const selectedGpu = getChecked("gpu");
@@ -40,50 +42,56 @@ document.addEventListener("DOMContentLoaded", () => {
       if (show) visible++;
     });
 
-    noResults.style.display = visible === 0 ? "block" : "none";
+    if (noResults) {
+      noResults.style.display = visible === 0 ? "block" : "none";
+    }
   }
 
   inputs.forEach((input) => {
     input.addEventListener("change", applyFilters);
   });
-document.addEventListener("DOMContentLoaded", () => {
+
+  applyFilters();
+
   const featuredSlides = document.querySelectorAll(".featured-slide");
   const prevArrow = document.querySelector(".carousel-arrow-left");
   const nextArrow = document.querySelector(".carousel-arrow-right");
 
-  if (!featuredSlides.length) return;
+  if (featuredSlides.length) {
+    let currentSlide = 0;
+    let autoSlideInterval;
 
-  let currentSlide = 0;
-  let autoSlideInterval;
+    function showSlide(index) {
+      featuredSlides.forEach((slide) => {
+        slide.classList.remove("active");
+      });
 
-  function showSlide(index) {
-    featuredSlides[currentSlide].classList.remove("active");
-    currentSlide = (index + featuredSlides.length) % featuredSlides.length;
-    featuredSlides[currentSlide].classList.add("active");
+      currentSlide = (index + featuredSlides.length) % featuredSlides.length;
+      featuredSlides[currentSlide].classList.add("active");
+    }
+
+    function startAutoSlide() {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(() => {
+        showSlide(currentSlide + 1);
+      }, 7000);
+    }
+
+    if (prevArrow) {
+      prevArrow.addEventListener("click", () => {
+        showSlide(currentSlide - 1);
+        startAutoSlide();
+      });
+    }
+
+    if (nextArrow) {
+      nextArrow.addEventListener("click", () => {
+        showSlide(currentSlide + 1);
+        startAutoSlide();
+      });
+    }
+
+    showSlide(0);
+    startAutoSlide();
   }
-
-  function startAutoSlide() {
-    clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(() => {
-      showSlide(currentSlide + 1);
-    }, 7000);
-  }
-
-  if (prevArrow) {
-    prevArrow.addEventListener("click", () => {
-      showSlide(currentSlide - 1);
-      startAutoSlide();
-    });
-  }
-
-  if (nextArrow) {
-    nextArrow.addEventListener("click", () => {
-      showSlide(currentSlide + 1);
-      startAutoSlide();
-    });
-  }
-
-  startAutoSlide();
-});
-  applyFilters();
 });
