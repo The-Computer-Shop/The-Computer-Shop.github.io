@@ -1,4 +1,36 @@
 document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("page-visible");
+
+  const pageLinks = document.querySelectorAll('a[href]');
+
+  pageLinks.forEach((link) => {
+    const href = link.getAttribute("href");
+
+    if (
+      !href ||
+      href.startsWith("#") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      link.target === "_blank"
+    ) {
+      return;
+    }
+
+    link.addEventListener("click", (event) => {
+      const destination = link.href;
+
+      if (destination === window.location.href) return;
+
+      event.preventDefault();
+      document.body.classList.remove("page-visible");
+      document.body.classList.add("page-leaving");
+
+      setTimeout(() => {
+        window.location.href = destination;
+      }, 400);
+    });
+  });
+
   const toggles = document.querySelectorAll(".filter-toggle");
   const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
   const cards = document.querySelectorAll(".product-card");
