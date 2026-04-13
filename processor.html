@@ -37,35 +37,43 @@
       <aside class="filters-panel">
         <div class="filter-item">
           <button class="filter-toggle" type="button">
-            <span>Processor Family</span>
+            <span>Manufacturer</span>
             <span class="chevron"></span>
           </button>
           <div class="filter-content">
-            <label><input type="checkbox" name="family" value="intel"> Intel</label>
-            <label><input type="checkbox" name="family" value="amd"> AMD</label>
+            <label><input type="checkbox" name="manufacturer" value="all"> All</label>
+            <label><input type="checkbox" name="manufacturer" value="amd"> AMD</label>
+            <label><input type="checkbox" name="manufacturer" value="intel"> Intel</label>
           </div>
         </div>
 
         <div class="filter-item">
           <button class="filter-toggle" type="button">
-            <span>Core Tier</span>
+            <span>Microarchitecture</span>
             <span class="chevron"></span>
           </button>
           <div class="filter-content">
-            <label><input type="checkbox" name="tier" value="ultra5"> Core Ultra 5</label>
-            <label><input type="checkbox" name="tier" value="ultra7"> Core Ultra 7</label>
-            <label><input type="checkbox" name="tier" value="ultra9"> Core Ultra 9</label>
+            <label><input type="checkbox" name="microarchitecture" value="all"> All</label>
+            <label><input type="checkbox" name="microarchitecture" value="zen4"> Zen 4</label>
+            <label><input type="checkbox" name="microarchitecture" value="zen5"> Zen 5</label>
+            <label><input type="checkbox" name="microarchitecture" value="alderlake"> Alder Lake</label>
+            <label><input type="checkbox" name="microarchitecture" value="raptorlake"> Raptor Lake</label>
+            <label><input type="checkbox" name="microarchitecture" value="raptorlakerefresh"> Raptor Lake Refresh</label>
+            <label><input type="checkbox" name="microarchitecture" value="arrowlake"> Arrow Lake</label>
           </div>
         </div>
 
         <div class="filter-item">
           <button class="filter-toggle" type="button">
-            <span>Platform</span>
+            <span>Socket</span>
             <span class="chevron"></span>
           </button>
           <div class="filter-content">
-            <label><input type="checkbox" name="platform" value="lga1851"> LGA 1851</label>
-            <label><input type="checkbox" name="platform" value="am5"> AM5</label>
+            <label><input type="checkbox" name="socket" value="all"> All</label>
+            <label><input type="checkbox" name="socket" value="am4"> AM4</label>
+            <label><input type="checkbox" name="socket" value="am5"> AM5</label>
+            <label><input type="checkbox" name="socket" value="lga1700"> LGA1700</label>
+            <label><input type="checkbox" name="socket" value="lga1851"> LGA1851</label>
           </div>
         </div>
       </aside>
