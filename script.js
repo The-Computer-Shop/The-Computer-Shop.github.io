@@ -67,9 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const currentFrame = slides[currentSlide].querySelector(".featured-image-frame");
       if (!currentFrame || !prevArrow || !nextArrow) return;
 
-      const arrowTop = currentFrame.offsetTop + currentFrame.offsetHeight / 2;
-      prevArrow.style.top = `${arrowTop}px`;
-      nextArrow.style.top = `${arrowTop}px`;
+      const topPosition = currentFrame.offsetTop + currentFrame.offsetHeight / 2;
+      prevArrow.style.top = `${topPosition}px`;
+      nextArrow.style.top = `${topPosition}px`;
     }
 
     function restartProgress() {
@@ -91,13 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function showSlide(index) {
       currentSlide = (index + slides.length) % slides.length;
-
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-      slides.forEach((slide, i) => {
-        slide.classList.toggle("active", i === currentSlide);
-      });
-
       restartProgress();
       positionArrows();
     }
