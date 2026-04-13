@@ -729,3 +729,12 @@ body.page-leaving {
 .dropdown-link:hover {
   background: rgba(255, 255, 255, 0.06);
 }
+
+.processor-page .product-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  display: block;
+  background: white;
+  padding: 18px;
+}
