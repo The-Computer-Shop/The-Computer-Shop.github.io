@@ -538,6 +538,13 @@ body.page-leaving {
   line-height: 1.5;
 }
 
+.product-price {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
 /* Responsive */
 
 @media (max-width: 1450px) {
