@@ -517,8 +517,8 @@ body.page-leaving {
 
 .product-card img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
+  height: 220px;
+  object-fit: cover;
   display: block;
 }
 
