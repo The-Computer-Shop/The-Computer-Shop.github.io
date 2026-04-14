@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graphics Cards - The Computer Shop</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="signature-builds-page">
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="site-title">The Computer Shop</a>
+      <a href="signature-builds.html" class="nav-link">Signature Builds</a>
+
+      <div class="nav-dropdown">
+        <a href="#" class="nav-link">Components</a>
+        <div class="dropdown-menu">
+          <a href="processor.html" class="dropdown-link">Processor</a>
+          <a href="#" class="dropdown-link">CPU Cooler</a>
+          <a href="#" class="dropdown-link">Motherboard</a>
+          <a href="#" class="dropdown-link">RAM</a>
+          <a href="#" class="dropdown-link">Storage</a>
+          <a href="graphics-card.html" class="dropdown-link">Graphics Card</a>
+          <a href="#" class="dropdown-link">Case</a>
+          <a href="#" class="dropdown-link">Power Supply</a>
+          <a href="#" class="dropdown-link">Monitor</a>
+        </div>
+      </div>
+
+      <a href="index.html#contact" class="nav-link">Contact Us</a>
+    </div>
+  </header>
+
+  <main class="signature-page">
+    <section class="signature-layout">
+      <aside class="filters-panel">
+        <div class="filter-item">
+          <button class="filter-toggle" type="button">
+            <span>Card Series</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="filter-content">
+            <label><input type="checkbox" name="cardseries" value="5000"> 5000</label>
+          </div>
+        </div>
+
+        <div class="filter-item">
+          <button class="filter-toggle" type="button">
+            <span>Chipset</span>
+            <span class="chevron"></span>
+          </button>
+          <div class="filter-content">
+            <label><input type="checkbox" name="chipset" value="5090"> 5090</label>
+            <label><input type="checkbox" name="chipset" value="5080"> 5080</label>
+            <label><input type="checkbox" name="chipset" value="5070ti"> 5070 Ti</label>
+            <label><input type="checkbox" name="chipset" value="5070"> 5070</label>
+            <label><input type="checkbox" name="chipset" value="5060ti"> 5060 Ti</label>
+            <label><input type="checkbox" name="chipset" value="5060"> 5060</label>
+            <label><input type="checkbox" name="chipset" value="5050"> 5050</label>
+          </div>
+        </div>
+      </aside>
+
+      <section class="signature-products">
+        <div class="products-grid">
+          <article class="product-card" data-cardseries="5000" data-chipset="5090">
+            <img src="gpu1.png" alt="RTX 5090">
+            <h3 class="product-name">RTX 5090</h3>
+          </article>
+
+          <article class="product-card" data-cardseries="5000" data-chipset="5080">
+            <img src="gpu2.png" alt="RTX 5080">
+            <h3 class="product-name">RTX 5080</h3>
+          </article>
+
+          <article class="product-card" data-cardseries="5000" data-chipset="5070ti">
+            <img src="gpu3.png" alt="RTX 5070 Ti">
+            <h3 class="product-name">RTX 5070 Ti</h3>
+          </article>
+
+          <article class="product-card" data-cardseries="5000" data-chipset="5070">
+            <img src="gpu4.png" alt="RTX 5070">
+            <h3 class="product-name">RTX 5070</h3>
+          </article>
+
+          <article class="product-card" data-cardseries="5000" data-chipset="5060ti">
+            <img src="gpu5.png" alt="RTX 5060 Ti">
+            <h3 class="product-name">RTX 5060 Ti</h3>
+          </article>
+
+          <article class="product-card" data-cardseries="5000" data-chipset="5060">
+            <img src="gpu6.png" alt="RTX 5060">
+            <h3 class="product-name">RTX 5060</h3>
+          </article>
+
+          <article class="product-card" data-cardseries="5000" data-chipset="5050">
+            <img src="gpu7.png" alt="RTX 5050">
+            <h3 class="product-name">RTX 5050</h3>
+          </article>
+        </div>
+
+        <div id="no-results" class="no-results">No graphics cards match the selected filters.</div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
