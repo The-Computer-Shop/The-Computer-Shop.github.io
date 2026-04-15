@@ -118,12 +118,15 @@ body.page-leaving {
 
 .featured-carousel {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
 }
 
 .featured-carousel-window {
   position: relative;
-  width: min(68%, 820px);
-  margin: 0 auto;
+  width: min(58%, 720px);
+  margin: 0;
   overflow: hidden;
 }
 
