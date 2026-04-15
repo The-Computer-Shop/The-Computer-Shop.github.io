@@ -125,7 +125,7 @@ body.page-leaving {
 
 .featured-carousel-window {
   position: relative;
-  width: min(58%, 720px);
+  width: min(62%, 760px);
   margin: 0;
   overflow: hidden;
 }
