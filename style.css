@@ -554,10 +554,12 @@ body.page-leaving {
   display: block;
   color: inherit;
   text-decoration: none;
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
-.product-link:hover .product-name {
-  text-decoration: underline;
+.product-link:hover {
+  opacity: 0.72;
 }
 
 .build-detail-page {
