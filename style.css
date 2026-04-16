@@ -637,7 +637,7 @@ body.page-leaving {
 }
 
 .build-detail-heading {
-  margin: -24px 0 22px -200px;
+  margin: -24px 0 22px -90px;
   font-size: 42px;
   font-weight: bold;
   text-transform: uppercase;
