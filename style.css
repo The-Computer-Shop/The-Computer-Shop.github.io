@@ -565,6 +565,10 @@ body.page-leaving {
   background: #2a2b2a;
 }
 
+.build-detail-page .featured-builds {
+  padding-top: 25vh;
+}
+
 .build-detail-page .featured-carousel-window {
   margin-left: -90px;
 }
