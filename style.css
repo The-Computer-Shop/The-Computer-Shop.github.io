@@ -636,11 +636,19 @@ body.page-leaving {
   padding-top: 40px;
 }
 
-.build-specs-title {
+.build-detail-heading {
+  margin: 0 0 22px -90px;
   font-size: 42px;
   font-weight: bold;
   text-transform: uppercase;
-  margin-bottom: 28px;
+  line-height: 1.1;
+}
+
+.build-section-heading {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 24px;
   line-height: 1.1;
 }
 
