@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Aorus Elite - The Computer Shop</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="site-title">The Computer Shop</a>
+      <a href="signature-builds.html" class="nav-link">Signature Builds</a>
+      <a href="index.html#contact" class="nav-link">Contact Us</a>
+    </div>
+  </header>
+
+  <main class="build-detail-page">
+    <section class="build-detail-layout">
+      <section class="featured-builds">
+        <h1 class="build-detail-heading">The Aorus Elite</h1>
+
+        <div class="featured-carousel manual-carousel">
+          <div class="featured-carousel-window">
+            <div class="featured-carousel-track">
+              <article class="featured-slide active">
+                <div class="featured-image-frame">
+                  <img src="build2-case1.png" alt="Build 2 Case Photo 1">
+                </div>
+              </article>
+
+              <article class="featured-slide">
+                <div class="featured-image-frame">
+                  <img src="build2-case2.png" alt="Build 2 Case Photo 2">
+                </div>
+              </article>
+
+              <article class="featured-slide">
+                <div class="featured-image-frame">
+                  <img src="build2-case3.png" alt="Build 2 Case Photo 3">
+                </div>
+              </article>
+            </div>
+
+            <button class="carousel-arrow carousel-arrow-left" aria-label="Previous photo">&#10094;</button>
+            <button class="carousel-arrow carousel-arrow-right" aria-label="Next photo">&#10095;</button>
+          </div>
+
+          <div class="carousel-thumbnails">
+            <button class="carousel-thumbnail active" type="button" data-slide="0" aria-label="Show photo 1">
+              <img src="build2-case1.png" alt="Build 2 Case Thumbnail 1">
+            </button>
+
+            <button class="carousel-thumbnail" type="button" data-slide="1" aria-label="Show photo 2">
+              <img src="build2-case2.png" alt="Build 2 Case Thumbnail 2">
+            </button>
+
+            <button class="carousel-thumbnail" type="button" data-slide="2" aria-label="Show photo 3">
+              <img src="build2-case3.png" alt="Build 2 Case Thumbnail 3">
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <aside class="build-specs-panel">
+        <h2 class="build-section-heading">Specifications</h2>
+        <div class="build-specs-list">
+          <p><span>CPU:</span> Intel Core Ultra 7 265K</p>
+          <p><span>GPU:</span> RTX 5070 Ti 16GB</p>
+          <p><span>RAM:</span> 64GB DDR5</p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
