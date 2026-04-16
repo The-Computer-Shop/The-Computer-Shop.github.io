@@ -85,13 +85,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applyFilters();
 
-const carousel = document.querySelector(".featured-carousel");
-const track = document.querySelector(".featured-carousel-track");
-const slides = document.querySelectorAll(".featured-slide");
-const fills = document.querySelectorAll(".carousel-progress-fill");
-const prevArrow = document.querySelector(".carousel-arrow-left");
-const nextArrow = document.querySelector(".carousel-arrow-right");
-const isManualCarousel = carousel && carousel.classList.contains("manual-carousel");
+  const carousel = document.querySelector(".featured-carousel");
+  const track = document.querySelector(".featured-carousel-track");
+  const slides = document.querySelectorAll(".featured-slide");
+  const fills = document.querySelectorAll(".carousel-progress-fill");
+  const thumbnails = document.querySelectorAll(".carousel-thumbnail");
+  const prevArrow = document.querySelector(".carousel-arrow-left");
+  const nextArrow = document.querySelector(".carousel-arrow-right");
+  const isManualCarousel = carousel && carousel.classList.contains("manual-carousel");
 
   if (track && slides.length) {
     let currentSlide = 0;
@@ -128,6 +129,10 @@ const isManualCarousel = carousel && carousel.classList.contains("manual-carouse
       track.style.transform = `translateX(-${currentSlide * 100}%)`;
       restartProgress();
       positionArrows();
+
+      thumbnails.forEach((thumbnail, thumbnailIndex) => {
+        thumbnail.classList.toggle("active", thumbnailIndex === currentSlide);
+      });
     }
 
     function nextSlide() {
@@ -146,22 +151,30 @@ const isManualCarousel = carousel && carousel.classList.contains("manual-carouse
     }
 
     if (prevArrow) {
-  prevArrow.addEventListener("click", () => {
-    prevSlide();
-    if (!isManualCarousel) startAutoSlide();
-  });
-}
+      prevArrow.addEventListener("click", () => {
+        prevSlide();
+        if (!isManualCarousel) startAutoSlide();
+      });
+    }
 
-if (nextArrow) {
-  nextArrow.addEventListener("click", () => {
-    nextSlide();
-    if (!isManualCarousel) startAutoSlide();
-  });
-}
+    if (nextArrow) {
+      nextArrow.addEventListener("click", () => {
+        nextSlide();
+        if (!isManualCarousel) startAutoSlide();
+      });
+    }
+
+    thumbnails.forEach((thumbnail) => {
+      thumbnail.addEventListener("click", () => {
+        const targetSlide = Number(thumbnail.dataset.slide);
+        showSlide(targetSlide);
+        if (!isManualCarousel) startAutoSlide();
+      });
+    });
 
     window.addEventListener("resize", positionArrows);
 
     showSlide(0);
-if (!isManualCarousel) startAutoSlide();
+    if (!isManualCarousel) startAutoSlide();
   }
 });
