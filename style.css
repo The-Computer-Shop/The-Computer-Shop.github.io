@@ -569,30 +569,33 @@ body.page-leaving {
   max-width: 1500px;
   margin: 0 auto;
   padding: 25vh 60px 80px;
-  display: grid;
-  grid-template-columns: minmax(0, 720px) minmax(320px, 1fr);
-  gap: 60px;
-  align-items: start;
+  display: flex;
+  align-items: flex-start;
+  gap: 70px;
 }
 
 .build-detail-page .featured-builds {
   padding: 0;
+  flex: 0 0 720px;
 }
 
 .build-detail-page .featured-carousel {
   max-width: none;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 .build-detail-page .featured-carousel-window {
-  width: 100%;
+  width: 720px;
   margin-left: -90px;
 }
 
 .build-specs-panel {
+  flex: 1;
+  min-width: 320px;
   color: white;
-  padding-top: 20px;
+  padding-top: 40px;
 }
 
 .build-specs-title {
@@ -615,13 +618,24 @@ body.page-leaving {
 
 @media (max-width: 1100px) {
   .build-detail-layout {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 40px;
     padding: 180px 25px 50px;
   }
 
+  .build-detail-page .featured-builds {
+    flex: none;
+    width: 100%;
+  }
+
   .build-detail-page .featured-carousel-window {
+    width: 100%;
     margin-left: 0;
+  }
+
+  .build-specs-panel {
+    min-width: 0;
+    padding-top: 0;
   }
 
   .build-specs-title {
