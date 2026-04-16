@@ -133,15 +133,15 @@ function scheduleArrowPosition() {
     }
 
     function showSlide(index) {
-      currentSlide = (index + slides.length) % slides.length;
-      track.style.transform = `translateX(-${currentSlide * 100}%)`;
-      restartProgress();
-      positionArrows();
+  currentSlide = (index + slides.length) % slides.length;
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  restartProgress();
+  scheduleArrowPosition();
 
-      thumbnails.forEach((thumbnail, thumbnailIndex) => {
-        thumbnail.classList.toggle("active", thumbnailIndex === currentSlide);
-      });
-    }
+  thumbnails.forEach((thumbnail, thumbnailIndex) => {
+    thumbnail.classList.toggle("active", thumbnailIndex === currentSlide);
+  });
+}
 
     function nextSlide() {
       showSlide(currentSlide + 1);
