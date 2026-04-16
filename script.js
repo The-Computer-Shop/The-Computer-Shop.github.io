@@ -180,9 +180,17 @@ function scheduleArrowPosition() {
       });
     });
 
-    window.addEventListener("resize", positionArrows);
+carouselImages.forEach((image) => {
+  if (!image.complete) {
+    image.addEventListener("load", scheduleArrowPosition);
+  }
+});
 
-    showSlide(0);
-    if (!isManualCarousel) startAutoSlide();
+window.addEventListener("load", scheduleArrowPosition);
+window.addEventListener("resize", scheduleArrowPosition);
+
+showSlide(0);
+scheduleArrowPosition();
+if (!isManualCarousel) startAutoSlide();
   }
 });
