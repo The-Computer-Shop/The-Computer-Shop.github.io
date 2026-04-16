@@ -550,16 +550,26 @@ body.page-leaving {
   color: white;
 }
 
-.product-link {
+.product-link,
+.product-link:visited,
+.product-link:hover,
+.product-link:active {
   display: block;
   color: inherit;
   text-decoration: none;
-  opacity: 1;
+}
+
+.product-link img,
+.product-link .product-name,
+.product-link .product-specs {
   transition: opacity 0.2s ease;
 }
 
-.product-link:hover {
+.product-link:hover img,
+.product-link:hover .product-name,
+.product-link:hover .product-specs {
   opacity: 0.72;
+  text-decoration: none;
 }
 
 .build-detail-page {
