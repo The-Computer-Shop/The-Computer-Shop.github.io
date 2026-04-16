@@ -100,13 +100,20 @@ const isManualCarousel = carousel && carousel.classList.contains("manual-carouse
     let autoSlideInterval;
 
     function positionArrows() {
-      const currentFrame = slides[currentSlide].querySelector(".featured-image-frame");
-      if (!currentFrame || !prevArrow || !nextArrow) return;
+  const currentFrame = slides[currentSlide].querySelector(".featured-image-frame");
+  if (!currentFrame || !prevArrow || !nextArrow || currentFrame.offsetHeight === 0) return;
 
-      const topPosition = currentFrame.offsetTop + currentFrame.offsetHeight / 2;
-      prevArrow.style.top = `${topPosition}px`;
-      nextArrow.style.top = `${topPosition}px`;
-    }
+  const topPosition = currentFrame.offsetTop + currentFrame.offsetHeight / 2;
+  prevArrow.style.top = `${topPosition}px`;
+  nextArrow.style.top = `${topPosition}px`;
+}
+
+function scheduleArrowPosition() {
+  requestAnimationFrame(() => {
+    positionArrows();
+    setTimeout(positionArrows, 60);
+  });
+}
 
     function restartProgress() {
       fills.forEach((fill) => {
