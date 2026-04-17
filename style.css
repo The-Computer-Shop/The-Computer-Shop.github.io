@@ -945,7 +945,7 @@ body.page-leaving {
 }
 
 .cart-summary-title {
-  font-size: 42px;
+  font-size: 31.5px;
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 0;
@@ -982,7 +982,7 @@ body.page-leaving {
 }
 
 .cart-checkout-button {
-  width: 100%;
+  width: 130%;
   height: 56px;
   margin-top: 28px;
   padding: 0 26px;
