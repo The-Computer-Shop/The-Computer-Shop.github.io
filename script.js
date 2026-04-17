@@ -48,7 +48,7 @@ const BUILD_DETAILS = {
   build3: {
     id: "build3",
     name: "Aorus Core",
-    price: 116000,
+    price: 105016,
     image: "build3.png",
     url: "build.html?build=build3",
     title: "Aorus Core - The Computer Shop",
@@ -58,23 +58,23 @@ const BUILD_DETAILS = {
       { src: "build3.png", alt: "Build 3 Photo 3" }
     ],
     specs: [
-      ["CPU", "Core Ultra 5 245K"],
-      ["GPU", "RTX 5060 Ti 16GB"],
-      ["RAM", "48GB RAM"],
-      ["Motherboard", "Add motherboard here"],
-      ["Cooler", "Add cooler here"],
-      ["Storage", "Add storage here"],
-      ["Case", "Add case here"],
-      ["Power Supply", "Add power supply here"]
+      ["CPU", "Core Ultra 5 245KF Tray"],
+      ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
+      ["Motherboard", "Gigabyte Z890 AORUS ELITE WIFI7"],
+      ["RAM", "CORSAIR VENGEANCE RGB DDR5 48GB (2x24GB) 6000MT/s CL36"],
+      ["Storage", "WD Black SN7100 500GB NVMe"],
+      ["GPU", "GIGABYTE AORUS RTX 5060 Ti Elite 16GB"],
+      ["Case", "Gigabyte C500 Panoramic Stealth"],
+      ["Power Supply", "AORUS ELITE P850W 80+ Platinum"]
     ]
   },
   build4: {
     id: "build4",
-    name: "Build 4",
-    price: 0,
+    name: "ROG Astral",
+    price: 578249,
     image: "build4.png",
     url: "build.html?build=build4",
-    title: "Build 4 - The Computer Shop",
+    title: "ROG Astral - The Computer Shop",
     photos: [
       { src: "build4.png", alt: "Build 4 Photo 1" },
       { src: "build4.png", alt: "Build 4 Photo 2" },
@@ -82,13 +82,13 @@ const BUILD_DETAILS = {
     ],
     specs: [
       ["CPU", "Core Ultra 9 285K"],
-      ["GPU", "RTX 5090 32GB"],
-      ["RAM", "192GB RAM"],
-      ["Motherboard", "Add motherboard here"],
-      ["Cooler", "Add cooler here"],
-      ["Storage", "Add storage here"],
-      ["Case", "Add case here"],
-      ["Power Supply", "Add power supply here"]
+      ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
+      ["Motherboard", "ASUS ROG MAXIMUS Z890 EXTREME"],
+      ["RAM", "2x Corsair Dominator Titanium RGB 96GB (2x48GB) DDR5 7000MT/s CL40"],
+      ["Storage", "WD Black SN7100 500GB NVMe"],
+      ["GPU", "Asus ROG Astral 5090 32GB"],
+      ["Case", "Asus ROG Cronox"],
+      ["Power Supply", "ASUS ROG Thor 1600W Titanium"]
     ]
   }
 };
