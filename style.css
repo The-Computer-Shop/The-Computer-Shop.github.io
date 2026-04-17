@@ -753,11 +753,11 @@ body.page-leaving {
 }
 
 .quantity-value.is-increasing {
-  animation: quantitySlideRight 0.18s ease;
+  animation: quantitySlideRight 0.35s ease;
 }
 
 .quantity-value.is-decreasing {
-  animation: quantitySlideLeft 0.18s ease;
+  animation: quantitySlideLeft 0.35s ease;
 }
 
 @keyframes quantitySlideRight {
