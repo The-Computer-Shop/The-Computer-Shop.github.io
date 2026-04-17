@@ -63,13 +63,18 @@ body.page-leaving {
 .nav-cart-link {
   color: white;
   text-decoration: none;
-  font-size: 26px;
-  line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 1;
   transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-cart-link svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+  stroke: currentColor;
 }
 
 .nav-cart-link:hover {
