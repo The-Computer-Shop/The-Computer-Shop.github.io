@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cart - The Computer Shop</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="site-title">The Computer Shop</a>
+      <a href="signature-builds.html" class="nav-link">Signature Builds</a>
+      <a href="cart.html" class="nav-link">Cart</a>
+      <a href="index.html#contact" class="nav-link">Contact Us</a>
+    </div>
+  </header>
+
+  <main class="cart-page">
+    <section class="cart-layout">
+      <div class="cart-header">
+        <h1>Your Cart</h1>
+      </div>
+
+      <div id="cart-items" class="cart-items"></div>
+
+      <div id="cart-empty" class="cart-empty">
+        Your cart is empty.
+      </div>
+
+      <div id="cart-summary" class="cart-summary">
+        <div class="cart-summary-row">
+          <span>Total</span>
+          <strong id="cart-total">0 EGP</strong>
+        </div>
+
+        <button class="cart-checkout-button" type="button">
+          Checkout
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
