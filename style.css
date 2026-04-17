@@ -936,7 +936,7 @@ body.page-leaving {
   display: none;
   margin-top: 0;
   margin-left: 25%;
-  width: 130%;
+  width: 100%;
   padding: 28px 30px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.14);
