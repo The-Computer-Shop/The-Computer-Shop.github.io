@@ -936,12 +936,13 @@ body.page-leaving {
   display: none;
   margin-top: 0;
   margin-left: 25%;
-  width: 100%;
+  width: 130%;
   padding: 28px 30px;
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.14);
   position: sticky;
   top: 180px;
+  box-sizing: border-box;
 }
 
 .cart-summary-title {
@@ -994,6 +995,7 @@ body.page-leaving {
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .cart-checkout-button:hover {
