@@ -1,5 +1,12 @@
-document.addEventListener("DOMContentLoaded", () => {
+function restorePageState() {
+  document.body.classList.remove("page-leaving");
   document.body.classList.add("page-visible");
+}
+
+window.addEventListener("pageshow", restorePageState);
+
+document.addEventListener("DOMContentLoaded", () => {
+  restorePageState();
 
   const pageLinks = document.querySelectorAll('a[href]');
 
