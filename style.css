@@ -954,6 +954,43 @@ body.page-leaving {
   background: rgba(255, 255, 255, 0.14);
 }
 
+/* Global loading overlay */
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: rgba(32, 32, 32, 0.42);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  z-index: 9999;
+}
+
+.page-loader.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.page-loader-spinner {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.22);
+  border-top-color: #ffffff;
+  animation: pageLoaderSpin 0.8s linear infinite;
+}
+
+@keyframes pageLoaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Responsive */
 
 @media (max-width: 1450px) {
