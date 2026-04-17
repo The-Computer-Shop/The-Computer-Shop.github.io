@@ -197,7 +197,7 @@ quantityControls.forEach((control) => {
       const existingItem = cart.find((item) => item.id === button.dataset.id);
       const purchaseActions = button.closest(".purchase-actions");
       const quantityValue = purchaseActions?.querySelector(".quantity-value");
-      const selectedQuantity = Math.max(1, Number(quantityValue?.textContent || 1));
+      const selectedQuantity = Math.max(1, Number(quantityValue?.value || 1));
 
       if (existingItem) {
         existingItem.quantity += selectedQuantity;
