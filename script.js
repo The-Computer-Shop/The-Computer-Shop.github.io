@@ -173,6 +173,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextArrow = document.querySelector(".carousel-arrow-right");
   const isManualCarousel = carousel && carousel.classList.contains("manual-carousel");
 
+  let pageLoader = document.querySelector(".page-loader");
+
+  if (!pageLoader) {
+    pageLoader = document.createElement("div");
+    pageLoader.className = "page-loader";
+    pageLoader.innerHTML = `<div class="page-loader-spinner" aria-hidden="true"></div>`;
+    document.body.appendChild(pageLoader);
+  }
+
+  function showPageLoader() {
+    pageLoader.classList.add("active");
+  }
+
+  function hidePageLoader() {
+    pageLoader.classList.remove("active");
+  }
+
   pageLinks.forEach((link) => {
     const href = link.getAttribute("href");
 
