@@ -695,6 +695,133 @@ body.page-leaving {
   transform: translateY(1px);
 }
 
+.cart-page {
+  min-height: 100vh;
+  background: #2a2b2a;
+  padding-top: 140px;
+}
+
+.cart-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px 80px;
+}
+
+.cart-header h1 {
+  font-size: 42px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+
+.cart-items {
+  display: grid;
+  gap: 18px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 160px 1fr auto;
+  gap: 22px;
+  align-items: center;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cart-item-image {
+  width: 160px;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  display: block;
+  background: #fff;
+}
+
+.cart-item-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.cart-item-name:hover {
+  opacity: 0.8;
+}
+
+.cart-item-meta {
+  margin-top: 8px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cart-item-side {
+  text-align: right;
+}
+
+.cart-item-price {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.cart-remove-button {
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cart-remove-button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cart-empty {
+  display: none;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 18px;
+}
+
+.cart-summary {
+  display: none;
+  margin-top: 24px;
+  margin-left: auto;
+  width: min(100%, 360px);
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cart-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 22px;
+  margin-bottom: 18px;
+}
+
+.cart-checkout-button {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cart-checkout-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
 /* Responsive */
 
 @media (max-width: 1450px) {
