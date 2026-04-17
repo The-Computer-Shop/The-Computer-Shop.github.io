@@ -165,12 +165,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     minusButton.addEventListener("click", () => {
       const currentValue = Number(valueElement.textContent);
-      valueElement.textContent = Math.max(1, currentValue - 1);
+      valueElement.textContent = String(Math.max(1, currentValue - 1));
     });
 
     plusButton.addEventListener("click", () => {
       const currentValue = Number(valueElement.textContent);
-      valueElement.textContent = currentValue + 1;
+      valueElement.textContent = String(currentValue + 1);
     });
   });
 
