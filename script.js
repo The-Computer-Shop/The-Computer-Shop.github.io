@@ -187,7 +187,7 @@ const navCartImages = document.querySelectorAll(".nav-cart-link img");
     });
   }
 
-  renderCart();
+    renderCart();
 
   const carousel = document.querySelector(".featured-carousel");
   const track = document.querySelector(".featured-carousel-track");
