@@ -156,6 +156,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function animateQuantityValue(valueElement, nextValue, direction) {
+    valueElement.classList.remove("is-increasing", "is-decreasing");
+    void valueElement.offsetWidth;
+    valueElement.textContent = String(nextValue);
+    valueElement.classList.add(direction === "up" ? "is-increasing" : "is-decreasing");
+  }
+
   quantityControls.forEach((control) => {
     const minusButton = control.querySelector(".quantity-minus");
     const plusButton = control.querySelector(".quantity-plus");
@@ -165,12 +172,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     minusButton.addEventListener("click", () => {
       const currentValue = Number(valueElement.textContent);
-      valueElement.textContent = String(Math.max(1, currentValue - 1));
+      const nextValue = Math.max(1, currentValue - 1);
+      if (nextValue !== currentValue) {
+        animateQuantityValue(valueElement, nextValue, "down");
+      }
     });
 
     plusButton.addEventListener("click", () => {
       const currentValue = Number(valueElement.textContent);
-      valueElement.textContent = String(currentValue + 1);
+      const nextValue = currentValue + 1;
+      animateQuantityValue(valueElement, nextValue, "up");
     });
   });
 
