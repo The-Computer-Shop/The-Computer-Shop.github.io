@@ -156,13 +156,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-function animateQuantityValue(valueElement, nextValue, direction) {
-  valueElement.classList.remove("is-increasing", "is-decreasing");
-  void valueElement.offsetWidth;
-  valueElement.textContent = String(nextValue);
-  valueElement.classList.add(direction === "right" ? "is-increasing" : "is-decreasing");
-}
-
 quantityControls.forEach((control) => {
   const minusButton = control.querySelector(".quantity-minus");
   const plusButton = control.querySelector(".quantity-plus");
@@ -171,17 +164,23 @@ quantityControls.forEach((control) => {
   if (!minusButton || !plusButton || !valueElement) return;
 
   minusButton.addEventListener("click", () => {
-    const currentValue = Number(valueElement.textContent);
-    const nextValue = Math.max(1, currentValue - 1);
-    if (nextValue !== currentValue) {
-      animateQuantityValue(valueElement, nextValue, "left");
-    }
+    const currentValue = Math.max(1, Number(valueElement.value) || 1);
+    valueElement.value = String(Math.max(1, currentValue - 1));
   });
 
   plusButton.addEventListener("click", () => {
-    const currentValue = Number(valueElement.textContent);
-    const nextValue = currentValue + 1;
-    animateQuantityValue(valueElement, nextValue, "right");
+    const currentValue = Math.max(1, Number(valueElement.value) || 1);
+    valueElement.value = String(currentValue + 1);
+  });
+
+  valueElement.addEventListener("input", () => {
+    const numericValue = valueElement.value.replace(/[^0-9]/g, "");
+    valueElement.value = numericValue;
+  });
+
+  valueElement.addEventListener("blur", () => {
+    const currentValue = Math.max(1, Number(valueElement.value) || 1);
+    valueElement.value = String(currentValue);
   });
 });
 
