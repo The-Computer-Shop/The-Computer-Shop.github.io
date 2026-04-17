@@ -804,6 +804,8 @@ body.page-leaving {
 
 .buy-now-button {
   width: 100%;
+  background: #B6B5B5;
+  color: black;
 }
 
 .add-to-cart-button:hover,
