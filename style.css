@@ -1047,7 +1047,7 @@ body.page-leaving {
     right: 10px;
   }
 
-  .cart-layout {
+    .cart-layout {
     padding: 0 25px 50px;
   }
 
@@ -1061,5 +1061,18 @@ body.page-leaving {
 
   .cart-item-side {
     text-align: left;
+  }
+
+  .purchase-top-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .quantity-control {
+    width: 100%;
+  }
+
+  .purchase-actions {
+    max-width: 100%;
   }
 }
