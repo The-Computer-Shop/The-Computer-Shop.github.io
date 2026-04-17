@@ -1,3 +1,84 @@
+const BUILD_DETAILS = {
+  build1: {
+    id: "build1",
+    name: "The Aorus Master",
+    price: 468000,
+    image: "build1.png",
+    url: "build.html?build=build1",
+    title: "The Aorus Master - The Computer Shop",
+    photos: [
+      { src: "build1-case1.png", alt: "Build 1 Case Photo 1" },
+      { src: "build1-case2.png", alt: "Build 1 Case Photo 2" },
+      { src: "build1-case3.png", alt: "Build 1 Case Photo 3" }
+    ],
+    specs: [
+      ["CPU", "Intel Core Ultra 9 285K"],
+      ["GPU", "Gigabyte AORUS RTX 5090 Master 32GB"],
+      ["RAM", "Corsair Dominator Titanium RGB 192GB (4x48GB) DDR5 7000MT/s CL40"],
+      ["Motherboard", "Gigabyte Z890 AORUS Master"],
+      ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
+      ["Storage", "WD Black SN7100 500GB Gen4 NVMe"],
+      ["Case", "Lian Li O11 Dynamic EVO XL"],
+      ["Power Supply", "Gigabyte UD1600PM 1600W 80+ Platinum"]
+    ]
+  },
+  build2: {
+    id: "build2",
+    name: "The Aorus Elite",
+    price: 195000,
+    image: "build2.png",
+    url: "build.html?build=build2",
+    title: "The Aorus Elite - The Computer Shop",
+    photos: [
+      { src: "build2-case1.png", alt: "Build 2 Case Photo 1" },
+      { src: "build2-case2.png", alt: "Build 2 Case Photo 2" },
+      { src: "build2-case3.png", alt: "Build 2 Case Photo 3" }
+    ],
+    specs: [
+      ["CPU", "Core Ultra 7 265K Tray"],
+      ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
+      ["Motherboard", "Gigabyte Z890 AORUS ELITE WIFI7"],
+      ["RAM", "CORSAIR VENGEANCE 64GB 6600MT/s RGB (2x32GB)"],
+      ["Storage", "WD Black SN7100 500GB NVMe"],
+      ["GPU", "Gigabyte GeForce RTX 5070 Ti Gaming OC 16GB"],
+      ["Case", "Lian Li O11 Dynamic EVO RGB"],
+      ["Power Supply", "P1000W 80+ Platinum AORUS ELITE Modular PCIe 5.0"]
+    ]
+  },
+  build3: {
+    id: "build3",
+    name: "Aorus Core",
+    price: 116000,
+    image: "build3.png",
+    url: "build.html?build=build3",
+    title: "Aorus Core - The Computer Shop",
+    photos: [
+      { src: "build3.png", alt: "Build 3 Photo 1" }
+    ],
+    specs: [
+      ["CPU", "Core Ultra 5 245K"],
+      ["GPU", "RTX 5060 Ti 16GB"],
+      ["RAM", "48GB RAM"]
+    ]
+  },
+  build4: {
+    id: "build4",
+    name: "Build 4",
+    price: 0,
+    image: "build4.png",
+    url: "build.html?build=build4",
+    title: "Build 4 - The Computer Shop",
+    photos: [
+      { src: "build4.png", alt: "Build 4 Photo 1" }
+    ],
+    specs: [
+      ["CPU", "Core Ultra 9 285K"],
+      ["GPU", "RTX 5090 32GB"],
+      ["RAM", "192GB RAM"]
+    ]
+  }
+};
+
 function restorePageState() {
   document.body.classList.remove("page-leaving");
   document.body.classList.add("page-visible");
@@ -7,6 +88,65 @@ window.addEventListener("pageshow", restorePageState);
 
 document.addEventListener("DOMContentLoaded", () => {
   restorePageState();
+
+  function populateBuildPage() {
+    const titleElement = document.getElementById("build-title");
+    const specsList = document.getElementById("build-specs-list");
+    const carouselTrack = document.getElementById("build-carousel-track");
+    const thumbnailsContainer = document.getElementById("build-thumbnails");
+    const addToCartButton = document.getElementById("build-add-to-cart");
+
+    if (!titleElement || !specsList || !carouselTrack || !thumbnailsContainer || !addToCartButton) {
+      return;
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const buildKey = params.get("build");
+    const build = BUILD_DETAILS[buildKey];
+
+    if (!build) {
+      titleElement.textContent = "Build Not Found";
+      specsList.innerHTML = "<p>This build does not exist.</p>";
+      carouselTrack.innerHTML = "";
+      thumbnailsContainer.innerHTML = "";
+      addToCartButton.style.display = "none";
+      document.title = "Build Not Found - The Computer Shop";
+      return;
+    }
+
+    document.title = build.title;
+    titleElement.textContent = build.name;
+
+    specsList.innerHTML = build.specs
+      .map(([label, value]) => `<p><span>${label}:</span> ${value}</p>`)
+      .join("");
+
+    carouselTrack.innerHTML = build.photos
+      .map((photo, index) => `
+        <article class="featured-slide${index === 0 ? " active" : ""}">
+          <div class="featured-image-frame">
+            <img src="${photo.src}" alt="${photo.alt}">
+          </div>
+        </article>
+      `)
+      .join("");
+
+    thumbnailsContainer.innerHTML = build.photos
+      .map((photo, index) => `
+        <button class="carousel-thumbnail${index === 0 ? " active" : ""}" type="button" data-slide="${index}" aria-label="Show photo ${index + 1}">
+          <img src="${photo.src}" alt="${photo.alt}">
+        </button>
+      `)
+      .join("");
+
+    addToCartButton.dataset.id = build.id;
+    addToCartButton.dataset.name = build.name;
+    addToCartButton.dataset.price = String(build.price);
+    addToCartButton.dataset.image = build.image;
+    addToCartButton.dataset.url = build.url;
+  }
+
+  populateBuildPage();
 
   const pageLinks = document.querySelectorAll('a[href]');
   const toggles = document.querySelectorAll(".filter-toggle");
