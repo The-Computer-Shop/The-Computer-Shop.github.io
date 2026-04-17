@@ -53,12 +53,19 @@ const BUILD_DETAILS = {
     url: "build.html?build=build3",
     title: "Aorus Core - The Computer Shop",
     photos: [
-      { src: "build3.png", alt: "Build 3 Photo 1" }
+      { src: "build3.png", alt: "Build 3 Photo 1" },
+      { src: "build3.png", alt: "Build 3 Photo 2" },
+      { src: "build3.png", alt: "Build 3 Photo 3" }
     ],
     specs: [
       ["CPU", "Core Ultra 5 245K"],
       ["GPU", "RTX 5060 Ti 16GB"],
-      ["RAM", "48GB RAM"]
+      ["RAM", "48GB RAM"],
+      ["Motherboard", "Add motherboard here"],
+      ["Cooler", "Add cooler here"],
+      ["Storage", "Add storage here"],
+      ["Case", "Add case here"],
+      ["Power Supply", "Add power supply here"]
     ]
   },
   build4: {
@@ -69,12 +76,19 @@ const BUILD_DETAILS = {
     url: "build.html?build=build4",
     title: "Build 4 - The Computer Shop",
     photos: [
-      { src: "build4.png", alt: "Build 4 Photo 1" }
+      { src: "build4.png", alt: "Build 4 Photo 1" },
+      { src: "build4.png", alt: "Build 4 Photo 2" },
+      { src: "build4.png", alt: "Build 4 Photo 3" }
     ],
     specs: [
       ["CPU", "Core Ultra 9 285K"],
       ["GPU", "RTX 5090 32GB"],
-      ["RAM", "192GB RAM"]
+      ["RAM", "192GB RAM"],
+      ["Motherboard", "Add motherboard here"],
+      ["Cooler", "Add cooler here"],
+      ["Storage", "Add storage here"],
+      ["Case", "Add case here"],
+      ["Power Supply", "Add power supply here"]
     ]
   }
 };
