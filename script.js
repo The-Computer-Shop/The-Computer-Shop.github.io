@@ -156,34 +156,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  function animateQuantityValue(valueElement, nextValue, direction) {
-    valueElement.classList.remove("is-increasing", "is-decreasing");
-    void valueElement.offsetWidth;
-    valueElement.textContent = String(nextValue);
-    valueElement.classList.add(direction === "up" ? "is-increasing" : "is-decreasing");
-  }
+function animateQuantityValue(valueElement, nextValue, direction) {
+  valueElement.classList.remove("is-increasing", "is-decreasing");
+  void valueElement.offsetWidth;
+  valueElement.textContent = String(nextValue);
+  valueElement.classList.add(direction === "right" ? "is-increasing" : "is-decreasing");
+}
 
-  quantityControls.forEach((control) => {
-    const minusButton = control.querySelector(".quantity-minus");
-    const plusButton = control.querySelector(".quantity-plus");
-    const valueElement = control.querySelector(".quantity-value");
+quantityControls.forEach((control) => {
+  const minusButton = control.querySelector(".quantity-minus");
+  const plusButton = control.querySelector(".quantity-plus");
+  const valueElement = control.querySelector(".quantity-value");
 
-    if (!minusButton || !plusButton || !valueElement) return;
+  if (!minusButton || !plusButton || !valueElement) return;
 
-    minusButton.addEventListener("click", () => {
-      const currentValue = Number(valueElement.textContent);
-      const nextValue = Math.max(1, currentValue - 1);
-      if (nextValue !== currentValue) {
-        animateQuantityValue(valueElement, nextValue, "down");
-      }
-    });
-
-    plusButton.addEventListener("click", () => {
-      const currentValue = Number(valueElement.textContent);
-      const nextValue = currentValue + 1;
-      animateQuantityValue(valueElement, nextValue, "up");
-    });
+  minusButton.addEventListener("click", () => {
+    const currentValue = Number(valueElement.textContent);
+    const nextValue = Math.max(1, currentValue - 1);
+    if (nextValue !== currentValue) {
+      animateQuantityValue(valueElement, nextValue, "left");
+    }
   });
+
+  plusButton.addEventListener("click", () => {
+    const currentValue = Number(valueElement.textContent);
+    const nextValue = currentValue + 1;
+    animateQuantityValue(valueElement, nextValue, "right");
+  });
+});
 
   addToCartButtons.forEach((button) => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
