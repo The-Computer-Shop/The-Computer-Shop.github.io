@@ -29,6 +29,7 @@ body.page-leaving {
   z-index: 10;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .nav-left {
@@ -51,6 +52,28 @@ body.page-leaving {
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav-cart-link {
+  color: white;
+  text-decoration: none;
+  font-size: 26px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-cart-link:hover {
+  opacity: 0.72;
 }
 
 .hero {
