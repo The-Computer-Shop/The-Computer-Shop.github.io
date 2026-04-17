@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartEmpty = document.getElementById("cart-empty");
   const cartSummary = document.getElementById("cart-summary");
   const cartTotal = document.getElementById("cart-total");
-const navCartImages = document.querySelectorAll(".nav-cart-link img");
+  const navCartImages = document.querySelectorAll(".nav-cart-link img");
 
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -97,37 +97,6 @@ const navCartImages = document.querySelectorAll(".nav-cart-link img");
   });
 
   applyFilters();
-
-  addToCartButtons.forEach((button) => {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const existingItem = cart.find((item) => item.id === button.dataset.id);
-
-    if (existingItem) {
-      button.textContent = "Added to Cart";
-    }
-
-    button.addEventListener("click", () => {
-      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-      const existingItem = cart.find((item) => item.id === button.dataset.id);
-
-      if (existingItem) {
-        existingItem.quantity += 1;
-      } else {
-        cart.push({
-          id: button.dataset.id,
-          name: button.dataset.name,
-          price: Number(button.dataset.price),
-          image: button.dataset.image,
-          url: button.dataset.url,
-          quantity: 1
-        });
-      }
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-      button.textContent = "Added to Cart";
-      renderCart();
-    });
-  });
 
   function formatPrice(value) {
     return `${value.toLocaleString()} EGP`;
@@ -187,7 +156,51 @@ const navCartImages = document.querySelectorAll(".nav-cart-link img");
     });
   }
 
-    renderCart();
+  addToCartButtons.forEach((button) => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const existingItem = cart.find((item) => item.id === button.dataset.id);
+
+    if (existingItem) {
+      button.textContent = "Added to Cart";
+    }
+
+    button.addEventListener("click", () => {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const existingItem = cart.find((item) => item.id === button.dataset.id);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          id: button.dataset.id,
+          name: button.dataset.name,
+          price: Number(button.dataset.price),
+          image: button.dataset.image,
+          url: button.dataset.url,
+          quantity: 1
+        });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      button.textContent = "Added to Cart";
+      renderCart();
+    });
+  });
+
+  renderCart();
+
+  navCartImages.forEach((image) => {
+    const staticSrc = image.dataset.static;
+    const hoverSrc = image.dataset.hover;
+
+    image.parentElement.addEventListener("mouseenter", () => {
+      image.src = `${hoverSrc}?v=${Date.now()}`;
+    });
+
+    image.parentElement.addEventListener("mouseleave", () => {
+      image.src = staticSrc;
+    });
+  });
 
   const carousel = document.querySelector(".featured-carousel");
   const track = document.querySelector(".featured-carousel-track");
