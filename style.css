@@ -937,9 +937,9 @@ body.page-leaving {
   margin-top: 0;
   margin-left: 25%;
   width: 100%;
-  padding: 38px 40px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 0;
+  background: transparent;
+  border: none;
   position: sticky;
   top: 180px;
 }
@@ -948,9 +948,7 @@ body.page-leaving {
   font-size: 42px;
   font-weight: bold;
   line-height: 1.1;
-  margin-bottom: 34px;
-  padding-bottom: 34px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 0;
 }
 
 .cart-summary-total-row {
@@ -960,6 +958,9 @@ body.page-leaving {
   gap: 20px;
   font-size: 22px;
   font-weight: bold;
+  margin-top: 28px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .cart-summary-total-row strong {
