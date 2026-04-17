@@ -748,6 +748,38 @@ body.page-leaving {
   font-size: 18px;
   font-weight: bold;
   color: white;
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.quantity-value.is-increasing {
+  animation: quantitySlideUp 0.22s ease;
+}
+
+.quantity-value.is-decreasing {
+  animation: quantitySlideDown 0.22s ease;
+}
+
+@keyframes quantitySlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes quantitySlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .add-to-cart-button,
