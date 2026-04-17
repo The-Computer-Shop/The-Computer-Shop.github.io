@@ -9,6 +9,29 @@ document.addEventListener("DOMContentLoaded", () => {
   restorePageState();
 
   const pageLinks = document.querySelectorAll('a[href]');
+  const toggles = document.querySelectorAll(".filter-toggle");
+  const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
+  const cards = document.querySelectorAll(".product-card");
+  const noResults = document.getElementById("no-results");
+
+  const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+  const quantityControls = document.querySelectorAll(".quantity-control");
+
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartEmpty = document.getElementById("cart-empty");
+  const cartSummary = document.getElementById("cart-summary");
+  const cartTotal = document.getElementById("cart-total");
+  const navCartCounts = document.querySelectorAll(".nav-cart-count");
+
+  const carousel = document.querySelector(".featured-carousel");
+  const track = document.querySelector(".featured-carousel-track");
+  const slides = document.querySelectorAll(".featured-slide");
+  const fills = document.querySelectorAll(".carousel-progress-fill");
+  const thumbnails = document.querySelectorAll(".carousel-thumbnail");
+  const carouselImages = document.querySelectorAll(".featured-image-frame img");
+  const prevArrow = document.querySelector(".carousel-arrow-left");
+  const nextArrow = document.querySelector(".carousel-arrow-right");
+  const isManualCarousel = carousel && carousel.classList.contains("manual-carousel");
 
   pageLinks.forEach((link) => {
     const href = link.getAttribute("href");
@@ -37,17 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 400);
     });
   });
-
-  const toggles = document.querySelectorAll(".filter-toggle");
-  const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
-  const cards = document.querySelectorAll(".product-card");
-  const noResults = document.getElementById("no-results");
-  const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-  const quantityControls = document.querySelectorAll(".quantity-control");
-  const cartItemsContainer = document.getElementById("cart-items");
-  const cartEmpty = document.getElementById("cart-empty");
-  const cartSummary = document.getElementById("cart-summary");
-  const cartTotal = document.getElementById("cart-total");
 
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -98,20 +110,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
   applyFilters();
 
+  function getCart() {
+    return JSON.parse(localStorage.getItem("cart") || "[]");
+  }
+
+  function setCart(cart) {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
   function formatPrice(value) {
     return `${value.toLocaleString()} EGP`;
   }
 
-  function renderCart() {
-    if (!cartItemsContainer || !cartEmpty || !cartSummary || !cartTotal) return;
+  function renderCartBadge() {
+    const cart = getCart();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    navCartCounts.forEach((badge) => {
+      badge.textContent = String(totalItems);
+      badge.style.display = totalItems > 0 ? "inline-block" : "none";
+    });
+  }
+
+  function renderCart() {
+    if (!cartItemsContainer || !cartEmpty || !cartSummary || !cartTotal) {
+      renderCartBadge();
+      return;
+    }
+
+    const cart = getCart();
     cartItemsContainer.innerHTML = "";
 
     if (cart.length === 0) {
       cartEmpty.style.display = "block";
       cartSummary.style.display = "none";
       cartTotal.textContent = "0 EGP";
+      renderCartBadge();
       return;
     }
 
@@ -143,64 +177,60 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     cartTotal.textContent = formatPrice(total);
+    renderCartBadge();
 
     document.querySelectorAll(".cart-remove-button").forEach((button) => {
       button.addEventListener("click", () => {
-        const updatedCart = JSON.parse(localStorage.getItem("cart") || "[]").filter(
-          (item) => item.id !== button.dataset.id
-        );
-
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        const updatedCart = getCart().filter((item) => item.id !== button.dataset.id);
+        setCart(updatedCart);
         renderCart();
       });
     });
   }
 
-quantityControls.forEach((control) => {
-  const minusButton = control.querySelector(".quantity-minus");
-  const plusButton = control.querySelector(".quantity-plus");
-  const valueElement = control.querySelector(".quantity-value");
+  quantityControls.forEach((control) => {
+    const minusButton = control.querySelector(".quantity-minus");
+    const plusButton = control.querySelector(".quantity-plus");
+    const valueElement = control.querySelector(".quantity-value");
 
-  if (!minusButton || !plusButton || !valueElement) return;
+    if (!minusButton || !plusButton || !valueElement) return;
 
-  minusButton.addEventListener("click", () => {
-    const currentValue = Math.max(1, Number(valueElement.value) || 1);
-    valueElement.value = String(Math.max(1, currentValue - 1));
+    minusButton.addEventListener("click", () => {
+      const currentValue = Math.max(1, Number(valueElement.value) || 1);
+      valueElement.value = String(Math.max(1, currentValue - 1));
+    });
+
+    plusButton.addEventListener("click", () => {
+      const currentValue = Math.max(1, Number(valueElement.value) || 1);
+      valueElement.value = String(currentValue + 1);
+    });
+
+    valueElement.addEventListener("input", () => {
+      valueElement.value = valueElement.value.replace(/[^0-9]/g, "");
+    });
+
+    valueElement.addEventListener("blur", () => {
+      const currentValue = Math.max(1, Number(valueElement.value) || 1);
+      valueElement.value = String(currentValue);
+    });
   });
-
-  plusButton.addEventListener("click", () => {
-    const currentValue = Math.max(1, Number(valueElement.value) || 1);
-    valueElement.value = String(currentValue + 1);
-  });
-
-  valueElement.addEventListener("input", () => {
-    const numericValue = valueElement.value.replace(/[^0-9]/g, "");
-    valueElement.value = numericValue;
-  });
-
-  valueElement.addEventListener("blur", () => {
-    const currentValue = Math.max(1, Number(valueElement.value) || 1);
-    valueElement.value = String(currentValue);
-  });
-});
 
   addToCartButtons.forEach((button) => {
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const existingItem = cart.find((item) => item.id === button.dataset.id);
+    const existingItem = getCart().find((item) => item.id === button.dataset.id);
 
     if (existingItem) {
       button.textContent = "Added to Cart";
     }
 
     button.addEventListener("click", () => {
-      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-      const existingItem = cart.find((item) => item.id === button.dataset.id);
+      const cart = getCart();
+      const existingCartItem = cart.find((item) => item.id === button.dataset.id);
       const purchaseActions = button.closest(".purchase-actions");
       const quantityValue = purchaseActions?.querySelector(".quantity-value");
       const selectedQuantity = Math.max(1, Number(quantityValue?.value || 1));
 
-      if (existingItem) {
-        existingItem.quantity += selectedQuantity;
+      if (existingCartItem) {
+        existingCartItem.quantity += selectedQuantity;
       } else {
         cart.push({
           id: button.dataset.id,
@@ -212,23 +242,13 @@ quantityControls.forEach((control) => {
         });
       }
 
-      localStorage.setItem("cart", JSON.stringify(cart));
+      setCart(cart);
       button.textContent = "Added to Cart";
       renderCart();
     });
   });
 
   renderCart();
-
-  const carousel = document.querySelector(".featured-carousel");
-  const track = document.querySelector(".featured-carousel-track");
-  const slides = document.querySelectorAll(".featured-slide");
-  const fills = document.querySelectorAll(".carousel-progress-fill");
-  const thumbnails = document.querySelectorAll(".carousel-thumbnail");
-  const carouselImages = document.querySelectorAll(".featured-image-frame img");
-  const prevArrow = document.querySelector(".carousel-arrow-left");
-  const nextArrow = document.querySelector(".carousel-arrow-right");
-  const isManualCarousel = carousel && carousel.classList.contains("manual-carousel");
 
   if (track && slides.length) {
     let currentSlide = 0;
