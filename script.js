@@ -38,11 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-const toggles = document.querySelectorAll(".filter-toggle");
-const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
-const cards = document.querySelectorAll(".product-card");
-const noResults = document.getElementById("no-results");
-const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+  const toggles = document.querySelectorAll(".filter-toggle");
+  const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
+  const cards = document.querySelectorAll(".product-card");
+  const noResults = document.getElementById("no-results");
+  const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+  const cartItemsContainer = document.getElementById("cart-items");
+  const cartEmpty = document.getElementById("cart-empty");
+  const cartSummary = document.getElementById("cart-summary");
+  const cartTotal = document.getElementById("cart-total");
 
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -91,67 +95,128 @@ const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
     input.addEventListener("change", applyFilters);
   });
 
-applyFilters();
+  applyFilters();
 
-addToCartButtons.forEach((button) => {
-  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-  const existingItem = cart.find((item) => item.id === button.dataset.id);
-
-  if (existingItem) {
-    button.textContent = "Added to Cart";
-  }
-
-  button.addEventListener("click", () => {
+  addToCartButtons.forEach((button) => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const existingItem = cart.find((item) => item.id === button.dataset.id);
 
     if (existingItem) {
-      existingItem.quantity += 1;
-    } else {
-      cart.push({
-        id: button.dataset.id,
-        name: button.dataset.name,
-        price: Number(button.dataset.price),
-        image: button.dataset.image,
-        url: button.dataset.url,
-        quantity: 1
-      });
+      button.textContent = "Added to Cart";
     }
 
-    localStorage.setItem("cart", JSON.stringify(cart));
-    button.textContent = "Added to Cart";
+    button.addEventListener("click", () => {
+      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const existingItem = cart.find((item) => item.id === button.dataset.id);
+
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({
+          id: button.dataset.id,
+          name: button.dataset.name,
+          price: Number(button.dataset.price),
+          image: button.dataset.image,
+          url: button.dataset.url,
+          quantity: 1
+        });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      button.textContent = "Added to Cart";
+      renderCart();
+    });
   });
-});
+
+  function formatPrice(value) {
+    return `${value.toLocaleString()} EGP`;
+  }
+
+  function renderCart() {
+    if (!cartItemsContainer || !cartEmpty || !cartSummary || !cartTotal) return;
+
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    cartItemsContainer.innerHTML = "";
+
+    if (cart.length === 0) {
+      cartEmpty.style.display = "block";
+      cartSummary.style.display = "none";
+      cartTotal.textContent = "0 EGP";
+      return;
+    }
+
+    cartEmpty.style.display = "none";
+    cartSummary.style.display = "block";
+
+    let total = 0;
+
+    cart.forEach((item) => {
+      total += item.price * item.quantity;
+
+      const article = document.createElement("article");
+      article.className = "cart-item";
+      article.innerHTML = `
+        <img class="cart-item-image" src="${item.image}" alt="${item.name}">
+        <div>
+          <a class="cart-item-name" href="${item.url}">${item.name}</a>
+          <div class="cart-item-meta">
+            Quantity: ${item.quantity}<br>
+            Unit Price: ${formatPrice(item.price)}
+          </div>
+        </div>
+        <div class="cart-item-side">
+          <div class="cart-item-price">${formatPrice(item.price * item.quantity)}</div>
+          <button class="cart-remove-button" type="button" data-id="${item.id}">Remove</button>
+        </div>
+      `;
+      cartItemsContainer.appendChild(article);
+    });
+
+    cartTotal.textContent = formatPrice(total);
+
+    document.querySelectorAll(".cart-remove-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const updatedCart = JSON.parse(localStorage.getItem("cart") || "[]").filter(
+          (item) => item.id !== button.dataset.id
+        );
+
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+        renderCart();
+      });
+    });
+  }
+
+  renderCart();
 
   const carousel = document.querySelector(".featured-carousel");
-const track = document.querySelector(".featured-carousel-track");
-const slides = document.querySelectorAll(".featured-slide");
-const fills = document.querySelectorAll(".carousel-progress-fill");
-const thumbnails = document.querySelectorAll(".carousel-thumbnail");
-const carouselImages = document.querySelectorAll(".featured-image-frame img");
-const prevArrow = document.querySelector(".carousel-arrow-left");
-const nextArrow = document.querySelector(".carousel-arrow-right");
-const isManualCarousel = carousel && carousel.classList.contains("manual-carousel");
+  const track = document.querySelector(".featured-carousel-track");
+  const slides = document.querySelectorAll(".featured-slide");
+  const fills = document.querySelectorAll(".carousel-progress-fill");
+  const thumbnails = document.querySelectorAll(".carousel-thumbnail");
+  const carouselImages = document.querySelectorAll(".featured-image-frame img");
+  const prevArrow = document.querySelector(".carousel-arrow-left");
+  const nextArrow = document.querySelector(".carousel-arrow-right");
+  const isManualCarousel = carousel && carousel.classList.contains("manual-carousel");
 
   if (track && slides.length) {
     let currentSlide = 0;
     let autoSlideInterval;
 
     function positionArrows() {
-  const currentFrame = slides[currentSlide].querySelector(".featured-image-frame");
-  if (!currentFrame || !prevArrow || !nextArrow || currentFrame.offsetHeight === 0) return;
+      const currentFrame = slides[currentSlide].querySelector(".featured-image-frame");
+      if (!currentFrame || !prevArrow || !nextArrow || currentFrame.offsetHeight === 0) return;
 
-  const topPosition = currentFrame.offsetTop + currentFrame.offsetHeight / 2;
-  prevArrow.style.top = `${topPosition}px`;
-  nextArrow.style.top = `${topPosition}px`;
-}
+      const topPosition = currentFrame.offsetTop + currentFrame.offsetHeight / 2;
+      prevArrow.style.top = `${topPosition}px`;
+      nextArrow.style.top = `${topPosition}px`;
+    }
 
-function scheduleArrowPosition() {
-  requestAnimationFrame(() => {
-    positionArrows();
-    setTimeout(positionArrows, 60);
-  });
-}
+    function scheduleArrowPosition() {
+      requestAnimationFrame(() => {
+        positionArrows();
+        setTimeout(positionArrows, 60);
+      });
+    }
 
     function restartProgress() {
       fills.forEach((fill) => {
@@ -171,15 +236,15 @@ function scheduleArrowPosition() {
     }
 
     function showSlide(index) {
-  currentSlide = (index + slides.length) % slides.length;
-  track.style.transform = `translateX(-${currentSlide * 100}%)`;
-  restartProgress();
-  scheduleArrowPosition();
+      currentSlide = (index + slides.length) % slides.length;
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      restartProgress();
+      scheduleArrowPosition();
 
-  thumbnails.forEach((thumbnail, thumbnailIndex) => {
-    thumbnail.classList.toggle("active", thumbnailIndex === currentSlide);
-  });
-}
+      thumbnails.forEach((thumbnail, thumbnailIndex) => {
+        thumbnail.classList.toggle("active", thumbnailIndex === currentSlide);
+      });
+    }
 
     function nextSlide() {
       showSlide(currentSlide + 1);
@@ -218,17 +283,17 @@ function scheduleArrowPosition() {
       });
     });
 
-carouselImages.forEach((image) => {
-  if (!image.complete) {
-    image.addEventListener("load", scheduleArrowPosition);
-  }
-});
+    carouselImages.forEach((image) => {
+      if (!image.complete) {
+        image.addEventListener("load", scheduleArrowPosition);
+      }
+    });
 
-window.addEventListener("load", scheduleArrowPosition);
-window.addEventListener("resize", scheduleArrowPosition);
+    window.addEventListener("load", scheduleArrowPosition);
+    window.addEventListener("resize", scheduleArrowPosition);
 
-showSlide(0);
-scheduleArrowPosition();
-if (!isManualCarousel) startAutoSlide();
+    showSlide(0);
+    scheduleArrowPosition();
+    if (!isManualCarousel) startAutoSlide();
   }
 });
