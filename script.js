@@ -219,8 +219,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const existingItem = getCart().find((item) => item.id === button.dataset.id);
 
     if (existingItem) {
-      button.textContent = "Added to Cart";
-    }
+  button.textContent = "Add to Cart";
+}
 
     button.addEventListener("click", () => {
       const cart = getCart();
