@@ -243,8 +243,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       setCart(cart);
-      button.textContent = "Added to Cart";
-      renderCart();
+button.textContent = "Added to Cart";
+renderCart();
+
+setTimeout(() => {
+  button.textContent = "Add to Cart";
+}, 3000);
     });
   });
 
