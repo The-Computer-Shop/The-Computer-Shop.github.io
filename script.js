@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartEmpty = document.getElementById("cart-empty");
   const cartSummary = document.getElementById("cart-summary");
   const cartTotal = document.getElementById("cart-total");
-  const navCartImages = document.querySelectorAll(".nav-cart-link img");
 
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -188,19 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   renderCart();
-
-  navCartImages.forEach((image) => {
-    const staticSrc = image.dataset.static;
-    const hoverSrc = image.dataset.hover;
-
-    image.parentElement.addEventListener("mouseenter", () => {
-      image.src = `${hoverSrc}?v=${Date.now()}`;
-    });
-
-    image.parentElement.addEventListener("mouseleave", () => {
-      image.src = staticSrc;
-    });
-  });
 
   const carousel = document.querySelector(".featured-carousel");
   const track = document.querySelector(".featured-carousel-track");
