@@ -937,9 +937,9 @@ body.page-leaving {
   margin-top: 0;
   margin-left: 25%;
   width: 100%;
-  padding: 0;
-  background: transparent;
-  border: none;
+  padding: 38px 40px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   position: sticky;
   top: 180px;
 }
