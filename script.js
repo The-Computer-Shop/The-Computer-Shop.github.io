@@ -38,10 +38,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const toggles = document.querySelectorAll(".filter-toggle");
-  const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
-  const cards = document.querySelectorAll(".product-card");
-  const noResults = document.getElementById("no-results");
+const toggles = document.querySelectorAll(".filter-toggle");
+const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
+const cards = document.querySelectorAll(".product-card");
+const noResults = document.getElementById("no-results");
+const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
 
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
@@ -90,7 +91,37 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("change", applyFilters);
   });
 
-  applyFilters();
+applyFilters();
+
+addToCartButtons.forEach((button) => {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+  const existingItem = cart.find((item) => item.id === button.dataset.id);
+
+  if (existingItem) {
+    button.textContent = "Added to Cart";
+  }
+
+  button.addEventListener("click", () => {
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
+    const existingItem = cart.find((item) => item.id === button.dataset.id);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        id: button.dataset.id,
+        name: button.dataset.name,
+        price: Number(button.dataset.price),
+        image: button.dataset.image,
+        url: button.dataset.url,
+        quantity: 1
+      });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    button.textContent = "Added to Cart";
+  });
+});
 
   const carousel = document.querySelector(".featured-carousel");
 const track = document.querySelector(".featured-carousel-track");
