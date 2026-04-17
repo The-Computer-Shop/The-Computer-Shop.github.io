@@ -674,6 +674,27 @@ body.page-leaving {
   font-weight: bold;
 }
 
+.add-to-cart-button {
+  margin-top: 28px;
+  padding: 14px 22px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.add-to-cart-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.add-to-cart-button:active {
+  transform: translateY(1px);
+}
+
 /* Responsive */
 
 @media (max-width: 1450px) {
