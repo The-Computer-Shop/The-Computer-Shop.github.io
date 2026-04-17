@@ -338,9 +338,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".cart-remove-button").forEach((button) => {
       button.addEventListener("click", () => {
-        const updatedCart = getCart().filter((item) => item.id !== button.dataset.id);
-        setCart(updatedCart);
-        renderCart();
+        showPageLoader();
+
+        setTimeout(() => {
+          const updatedCart = getCart().filter((item) => item.id !== button.dataset.id);
+          setCart(updatedCart);
+          renderCart();
+          hidePageLoader();
+        }, 500);
       });
     });
   }
