@@ -67,18 +67,12 @@ body.page-leaving {
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
-.nav-cart-link svg {
-  width: 28px;
-  height: 28px;
+.nav-cart-link img {
+  width: 34px;
+  height: 34px;
   display: block;
-  stroke: currentColor;
-}
-
-.nav-cart-link:hover {
-  opacity: 0.72;
 }
 
 .hero {
