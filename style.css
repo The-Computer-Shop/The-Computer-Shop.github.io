@@ -839,7 +839,8 @@ body.page-leaving {
   padding: 0 60px 80px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
-  gap: 40px;
+  column-gap: 140px;
+  row-gap: 0;
   align-items: start;
 }
 
