@@ -701,10 +701,61 @@ body.page-leaving {
   font-weight: bold;
 }
 
-.add-to-cart-button {
-  margin-top: 28px;
-  padding: 14px 22px;
+.purchase-actions {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 460px;
+}
+
+.purchase-top-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.quantity-control {
+  height: 56px;
+  min-width: 170px;
+  padding: 0 18px;
   border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.quantity-button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.quantity-button:hover {
+  opacity: 0.72;
+}
+
+.quantity-value {
+  min-width: 22px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.add-to-cart-button,
+.buy-now-button {
+  height: 56px;
+  padding: 0 26px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
   color: white;
   font-size: 16px;
@@ -714,11 +765,22 @@ body.page-leaving {
   transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
 }
 
-.add-to-cart-button:hover {
+.add-to-cart-button {
+  flex: 1;
+  min-width: 0;
+}
+
+.buy-now-button {
+  width: 100%;
+}
+
+.add-to-cart-button:hover,
+.buy-now-button:hover {
   background: rgba(255, 255, 255, 0.14);
 }
 
-.add-to-cart-button:active {
+.add-to-cart-button:active,
+.buy-now-button:active {
   transform: translateY(1px);
 }
 
