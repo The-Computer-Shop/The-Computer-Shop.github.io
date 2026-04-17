@@ -70,9 +70,10 @@ body.page-leaving {
 }
 
 .nav-cart-link img {
-  width: 40px;
-  height: auto;
+  width: 24px;
+  height: 24px;
   display: block;
+  object-fit: contain;
 }
 
 .nav-cart-link:hover {
