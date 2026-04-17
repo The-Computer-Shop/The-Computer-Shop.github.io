@@ -216,11 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   addToCartButtons.forEach((button) => {
-    const existingItem = getCart().find((item) => item.id === button.dataset.id);
-
-    if (existingItem) {
-  button.textContent = "Add to Cart";
-}
+    button.textContent = "Add to Cart";
 
     button.addEventListener("click", () => {
       const cart = getCart();
@@ -243,12 +239,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       setCart(cart);
-button.textContent = "Added to Cart";
-renderCart();
+      renderCart();
 
-setTimeout(() => {
-  button.textContent = "Add to Cart";
-}, 3000);
+      button.textContent = "Added to Cart";
+
+      clearTimeout(button.resetTextTimeout);
+
+      button.resetTextTimeout = setTimeout(() => {
+        button.textContent = "Add to Cart";
+      }, 3000);
     });
   });
 
