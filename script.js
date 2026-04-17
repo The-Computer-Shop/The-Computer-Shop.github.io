@@ -376,35 +376,40 @@ document.addEventListener("DOMContentLoaded", () => {
     button.textContent = "Add to Cart";
 
     button.addEventListener("click", () => {
-      const cart = getCart();
-      const existingCartItem = cart.find((item) => item.id === button.dataset.id);
-      const purchaseActions = button.closest(".purchase-actions");
-      const quantityValue = purchaseActions?.querySelector(".quantity-value");
-      const selectedQuantity = Math.max(1, Number(quantityValue?.value || 1));
+      showPageLoader();
 
-      if (existingCartItem) {
-        existingCartItem.quantity += selectedQuantity;
-      } else {
-        cart.push({
-          id: button.dataset.id,
-          name: button.dataset.name,
-          price: Number(button.dataset.price),
-          image: button.dataset.image,
-          url: button.dataset.url,
-          quantity: selectedQuantity
-        });
-      }
+      setTimeout(() => {
+        const cart = getCart();
+        const existingCartItem = cart.find((item) => item.id === button.dataset.id);
+        const purchaseActions = button.closest(".purchase-actions");
+        const quantityValue = purchaseActions?.querySelector(".quantity-value");
+        const selectedQuantity = Math.max(1, Number(quantityValue?.value || 1));
 
-      setCart(cart);
-      renderCart();
+        if (existingCartItem) {
+          existingCartItem.quantity += selectedQuantity;
+        } else {
+          cart.push({
+            id: button.dataset.id,
+            name: button.dataset.name,
+            price: Number(button.dataset.price),
+            image: button.dataset.image,
+            url: button.dataset.url,
+            quantity: selectedQuantity
+          });
+        }
 
-      button.textContent = "Added to Cart";
+        setCart(cart);
+        renderCart();
+        hidePageLoader();
 
-      clearTimeout(button.resetTextTimeout);
+        button.textContent = "Added to Cart";
 
-      button.resetTextTimeout = setTimeout(() => {
-        button.textContent = "Add to Cart";
-      }, 3000);
+        clearTimeout(button.resetTextTimeout);
+
+        button.resetTextTimeout = setTimeout(() => {
+          button.textContent = "Add to Cart";
+        }, 3000);
+      }, 2000);
     });
   });
 
