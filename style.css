@@ -941,7 +941,7 @@ body.page-leaving {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.14);
   position: relative;
-  top: 128px;
+  top: 95px;
   box-sizing: border-box;
 }
 
