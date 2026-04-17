@@ -156,6 +156,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  quantityControls.forEach((control) => {
+    const minusButton = control.querySelector(".quantity-minus");
+    const plusButton = control.querySelector(".quantity-plus");
+    const valueElement = control.querySelector(".quantity-value");
+
+    if (!minusButton || !plusButton || !valueElement) return;
+
+    minusButton.addEventListener("click", () => {
+      const currentValue = Number(valueElement.textContent);
+      valueElement.textContent = Math.max(1, currentValue - 1);
+    });
+
+    plusButton.addEventListener("click", () => {
+      const currentValue = Number(valueElement.textContent);
+      valueElement.textContent = currentValue + 1;
+    });
+  });
+
   addToCartButtons.forEach((button) => {
     const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const existingItem = cart.find((item) => item.id === button.dataset.id);
@@ -167,9 +185,12 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const cart = JSON.parse(localStorage.getItem("cart") || "[]");
       const existingItem = cart.find((item) => item.id === button.dataset.id);
+      const purchaseActions = button.closest(".purchase-actions");
+      const quantityValue = purchaseActions?.querySelector(".quantity-value");
+      const selectedQuantity = Math.max(1, Number(quantityValue?.textContent || 1));
 
       if (existingItem) {
-        existingItem.quantity += 1;
+        existingItem.quantity += selectedQuantity;
       } else {
         cart.push({
           id: button.dataset.id,
@@ -177,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
           price: Number(button.dataset.price),
           image: button.dataset.image,
           url: button.dataset.url,
-          quantity: 1
+          quantity: selectedQuantity
         });
       }
 
