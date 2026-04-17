@@ -409,7 +409,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.resetTextTimeout = setTimeout(() => {
           button.textContent = "Add to Cart";
         }, 3000);
-      }, 2000);
+      }, 1000);
     });
   });
 
