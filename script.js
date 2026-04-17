@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartEmpty = document.getElementById("cart-empty");
   const cartSummary = document.getElementById("cart-summary");
   const cartTotal = document.getElementById("cart-total");
+const navCartImages = document.querySelectorAll(".nav-cart-link img");
 
   toggles.forEach((toggle) => {
     toggle.addEventListener("click", () => {
