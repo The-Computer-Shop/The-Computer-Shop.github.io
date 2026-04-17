@@ -944,6 +944,28 @@ body.page-leaving {
   top: 180px;
 }
 
+.cart-summary-title {
+  font-size: 42px;
+  font-weight: bold;
+  line-height: 1.1;
+  margin-bottom: 34px;
+  padding-bottom: 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.cart-summary-total-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.cart-summary-total-row strong {
+  font-size: 22px;
+}
+
 .cart-summary-row {
   display: flex;
   align-items: center;
