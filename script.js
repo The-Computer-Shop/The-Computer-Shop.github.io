@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".product-card");
   const noResults = document.getElementById("no-results");
   const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+  const quantityControls = document.querySelectorAll(".quantity-control");
   const cartItemsContainer = document.getElementById("cart-items");
   const cartEmpty = document.getElementById("cart-empty");
   const cartSummary = document.getElementById("cart-summary");
