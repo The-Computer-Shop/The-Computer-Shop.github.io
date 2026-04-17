@@ -957,4 +957,20 @@ body.page-leaving {
   .carousel-arrow-right {
     right: 10px;
   }
+
+  .cart-layout {
+    padding: 0 25px 50px;
+  }
+
+  .cart-item {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item-image {
+    width: 100%;
+  }
+
+  .cart-item-side {
+    text-align: left;
+  }
 }
