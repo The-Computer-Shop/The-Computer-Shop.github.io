@@ -386,7 +386,13 @@ document.addEventListener("DOMContentLoaded", () => {
   sortOptions.forEach((option) => {
     option.addEventListener("click", () => {
       const selectedSort = option.dataset.sort;
-      activeSort = activeSort === selectedSort ? "" : selectedSort;
+
+      if (selectedSort === "default") {
+        activeSort = "";
+      } else {
+        activeSort = selectedSort;
+      }
+
       applySort();
     });
   });
