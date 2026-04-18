@@ -48,7 +48,7 @@ const BUILD_DETAILS = {
   build3: {
     id: "build3",
     name: "Aorus Core",
-    price: 105016,
+    price: 116000,
     image: "build3.png",
     url: "build.html?build=build3",
     title: "Aorus Core - The Computer Shop",
