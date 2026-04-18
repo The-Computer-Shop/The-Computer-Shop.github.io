@@ -377,7 +377,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     sortOptions.forEach((option) => {
-      option.classList.toggle("active", option.dataset.sort === activeSort);
+      option.classList.toggle(
+        "active",
+        activeSort !== "" && option.dataset.sort === activeSort
+      );
     });
 
     updateSortButtonLabel();
