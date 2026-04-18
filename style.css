@@ -1216,3 +1216,30 @@ body.page-leaving {
     max-width: 100%;
   }
 }
+
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+.featured-image-frame,
+.product-card img,
+.build-image,
+.cart-item-image,
+.carousel-thumbnail,
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-image-frame::after,
+.product-card::after,
+.build-image::after,
+.cart-item-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: auto;
+}
