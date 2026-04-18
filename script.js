@@ -54,8 +54,12 @@ const BUILD_DETAILS = {
     title: "Aorus Core - The Computer Shop",
 photos: [
   { src: "build3.png", alt: "Build 3 Photo 1" },
-  { src: "build3.png", alt: "Build 3 Photo 2" },
-  { src: "build3.png", alt: "Build 3 Photo 3" }
+  { src: "build3-photo2.png", alt: "Build 3 Photo 2" },
+  { src: "build3-photo3.png", alt: "Build 3 Photo 3" },
+  { src: "build3-photo4.png", alt: "Build 3 Photo 4" },
+  { src: "build3-photo5.png", alt: "Build 3 Photo 5" },
+  { src: "build3-photo6.png", alt: "Build 3 Photo 6" },
+  { src: "build3-photo7.png", alt: "Build 3 Photo 7" }
 ],
     specs: [
       ["CPU", "Core Ultra 5 245K Tray"],
