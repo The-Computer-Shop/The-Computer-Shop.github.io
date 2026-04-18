@@ -180,6 +180,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const priceMaxInput = document.getElementById("price-max");
   const priceMinLabel = document.getElementById("price-min-label");
   const priceMaxLabel = document.getElementById("price-max-label");
+  const productsGrid = document.querySelector(".products-grid");
+  const sortButton = document.getElementById("sort-button");
+  const sortOptions = document.querySelectorAll(".sort-option");
   const cards = document.querySelectorAll(".product-card");
   const noResults = document.getElementById("no-results");
 
@@ -337,6 +340,58 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   applyFilters();
+
+  cards.forEach((card, index) => {
+    card.dataset.originalIndex = String(index);
+  });
+
+  let activeSort = "";
+
+  function updateSortButtonLabel() {
+    if (!sortButton) return;
+
+    if (activeSort === "desc") {
+      sortButton.textContent = "Highest to Lowest";
+    } else if (activeSort === "asc") {
+      sortButton.textContent = "Lowest to Highest";
+    } else {
+      sortButton.textContent = "Sort By";
+    }
+  }
+
+  function applySort() {
+    if (!productsGrid) return;
+
+    const sortedCards = Array.from(cards).sort((a, b) => {
+      const priceA = Number(a.dataset.price || 0);
+      const priceB = Number(b.dataset.price || 0);
+
+      if (activeSort === "desc") return priceB - priceA;
+      if (activeSort === "asc") return priceA - priceB;
+
+      return Number(a.dataset.originalIndex) - Number(b.dataset.originalIndex);
+    });
+
+    sortedCards.forEach((card) => {
+      productsGrid.appendChild(card);
+    });
+
+    sortOptions.forEach((option) => {
+      option.classList.toggle("active", option.dataset.sort === activeSort);
+    });
+
+    updateSortButtonLabel();
+  }
+
+  sortOptions.forEach((option) => {
+    option.addEventListener("click", () => {
+      const selectedSort = option.dataset.sort;
+      activeSort = activeSort === selectedSort ? "" : selectedSort;
+      applySort();
+    });
+  });
+
+  updateSortButtonLabel();
 
   function getCart() {
     return JSON.parse(localStorage.getItem("cart") || "[]");
