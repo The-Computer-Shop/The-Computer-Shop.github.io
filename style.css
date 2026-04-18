@@ -635,6 +635,78 @@ body.page-leaving {
   gap: 20px;
 }
 
+.signature-products-top {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.sort-dropdown {
+  position: relative;
+}
+
+.sort-button {
+  min-width: 220px;
+  height: 48px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sort-button::after {
+  content: "⌄";
+  font-size: 16px;
+  margin-left: 12px;
+}
+
+.sort-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 220px;
+  background: #2a2b2a;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  z-index: 20;
+}
+
+.sort-dropdown:hover .sort-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.sort-option {
+  width: 100%;
+  padding: 14px 16px;
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sort-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sort-option.active {
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 600;
+}
+
 .product-card {
   background: transparent;
   border: none;
