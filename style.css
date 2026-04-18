@@ -1220,7 +1220,6 @@ body.page-leaving {
 
 img {
   -webkit-user-drag: none;
-  user-select: none;
 }
 
 .featured-image-frame,
