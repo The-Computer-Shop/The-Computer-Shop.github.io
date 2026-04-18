@@ -176,6 +176,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageLinks = document.querySelectorAll('a[href]');
   const toggles = document.querySelectorAll(".filter-toggle");
   const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
+  const priceMinInput = document.getElementById("price-min");
+  const priceMaxInput = document.getElementById("price-max");
+  const priceMinLabel = document.getElementById("price-min-label");
+  const priceMaxLabel = document.getElementById("price-max-label");
   const cards = document.querySelectorAll(".product-card");
   const noResults = document.getElementById("no-results");
 
@@ -262,6 +266,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const selectedRam = getChecked("ram");
     const selectedCpu = getChecked("cpu");
     const selectedGpu = getChecked("gpu");
+    const selectedMinPrice = priceMinInput ? Number(priceMinInput.value) : 0;
+    const selectedMaxPrice = priceMaxInput ? Number(priceMaxInput.value) : 900000;
 
     let visible = 0;
 
@@ -269,12 +275,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const ram = card.dataset.ram;
       const cpu = card.dataset.cpu;
       const gpu = card.dataset.gpu;
+      const price = Number(card.dataset.price || 0);
 
       const ramMatch = selectedRam.length === 0 || selectedRam.includes(ram);
       const cpuMatch = selectedCpu.length === 0 || selectedCpu.includes(cpu);
       const gpuMatch = selectedGpu.length === 0 || selectedGpu.includes(gpu);
+      const priceMatch = price >= selectedMinPrice && price <= selectedMaxPrice;
 
-      const show = ramMatch && cpuMatch && gpuMatch;
+      const show = ramMatch && cpuMatch && gpuMatch && priceMatch;
 
       card.style.display = show ? "block" : "none";
 
