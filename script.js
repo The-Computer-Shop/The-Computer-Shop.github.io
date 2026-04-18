@@ -79,11 +79,31 @@ photos: [
     image: "build4.png",
     url: "build.html?build=build4",
     title: "ROG Astral - The Computer Shop",
-    photos: [
-      { src: "build4.png", alt: "Build 4 Photo 1" },
-      { src: "build4.png", alt: "Build 4 Photo 2" },
-      { src: "build4.png", alt: "Build 4 Photo 3" }
-    ],
+**Replace this in `script.js`**
+
+```javascript
+photos: [
+  { src: "build4.png", alt: "Build 4 Photo 1" },
+  { src: "build4.png", alt: "Build 4 Photo 2" },
+  { src: "build4.png", alt: "Build 4 Photo 3" }
+],
+```
+
+**With this**
+
+```javascript
+photos: [
+  { src: "build4.png", alt: "Build 4 Photo 1" },
+  { src: "build4-photo2.png", alt: "Build 4 Photo 2" },
+  { src: "build4-photo3.png", alt: "Build 4 Photo 3" },
+  { src: "build4-photo4.png", alt: "Build 4 Photo 4" },
+  { src: "build4-photo5.png", alt: "Build 4 Photo 5" },
+  { src: "build4-photo6.png", alt: "Build 4 Photo 6" },
+  { src: "build4-photo7.png", alt: "Build 4 Photo 7" },
+  { src: "build4-photo8.png", alt: "Build 4 Photo 8" }
+],
+```
+
     specs: [
       ["CPU", "Core Ultra 9 285K"],
       ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
