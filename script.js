@@ -537,9 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("contextmenu", (event) => {
-  if (event.target.closest("img")) {
-    event.preventDefault();
-  }
+  event.preventDefault();
 });
 
 document.addEventListener("dragstart", (event) => {
