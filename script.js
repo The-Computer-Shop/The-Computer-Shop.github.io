@@ -71,7 +71,7 @@ const BUILD_DETAILS = {
   build4: {
     id: "build4",
     name: "ROG Astral",
-    price: 584000,
+    price: 553000,
     image: "build4.png",
     url: "build.html?build=build4",
     title: "ROG Astral - The Computer Shop",
