@@ -52,19 +52,19 @@ const BUILD_DETAILS = {
     image: "build3.png",
     url: "build.html?build=build3",
     title: "Aorus Core - The Computer Shop",
-photos: [
-  { src: "build3.png", alt: "Build 3 Photo 1" },
-  { src: "build3-photo2.png", alt: "Build 3 Photo 2" },
-  { src: "build3-photo3.png", alt: "Build 3 Photo 3" },
-  { src: "build3-photo4.png", alt: "Build 3 Photo 4" },
-  { src: "build3-photo5.png", alt: "Build 3 Photo 5" },
-  { src: "build3-photo6.png", alt: "Build 3 Photo 6" },
-  { src: "build3-photo7.png", alt: "Build 3 Photo 7" }
-],
+    photos: [
+      { src: "build3.png", alt: "Build 3 Photo 1" },
+      { src: "build3-photo2.png", alt: "Build 3 Photo 2" },
+      { src: "build3-photo3.png", alt: "Build 3 Photo 3" },
+      { src: "build3-photo4.png", alt: "Build 3 Photo 4" },
+      { src: "build3-photo5.png", alt: "Build 3 Photo 5" },
+      { src: "build3-photo6.png", alt: "Build 3 Photo 6" },
+      { src: "build3-photo7.png", alt: "Build 3 Photo 7" }
+    ],
     specs: [
-      ["CPU", "Core Ultra 5 245K Tray"],
+      ["CPU", "Core Ultra 5 245KF Tray"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
-      ["Motherboard", "Gigabyte Z890 Aorus Elite Wifi7"],
+      ["Motherboard", "Gigabyte Z890 AORUS ELITE WIFI7"],
       ["RAM", "CORSAIR VENGEANCE RGB DDR5 48GB (2x24GB) 6000MT/s CL36"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
       ["GPU", "GIGABYTE AORUS RTX 5060 Ti Elite 16GB"],
@@ -79,40 +79,25 @@ photos: [
     image: "build4.png",
     url: "build.html?build=build4",
     title: "ROG Astral - The Computer Shop",
-**Replace this in `script.js`**
-
-```javascript
-photos: [
-  { src: "build4.png", alt: "Build 4 Photo 1" },
-  { src: "build4.png", alt: "Build 4 Photo 2" },
-  { src: "build4.png", alt: "Build 4 Photo 3" }
-],
-```
-
-**With this**
-
-```javascript
-photos: [
-  { src: "build4.png", alt: "Build 4 Photo 1" },
-  { src: "build4-photo2.png", alt: "Build 4 Photo 2" },
-  { src: "build4-photo3.png", alt: "Build 4 Photo 3" },
-  { src: "build4-photo4.png", alt: "Build 4 Photo 4" },
-  { src: "build4-photo5.png", alt: "Build 4 Photo 5" },
-  { src: "build4-photo6.png", alt: "Build 4 Photo 6" },
-  { src: "build4-photo7.png", alt: "Build 4 Photo 7" },
-  { src: "build4-photo8.png", alt: "Build 4 Photo 8" }
-],
-```
-
+    photos: [
+      { src: "build4.png", alt: "Build 4 Photo 1" },
+      { src: "build4-photo2.png", alt: "Build 4 Photo 2" },
+      { src: "build4-photo3.png", alt: "Build 4 Photo 3" },
+      { src: "build4-photo4.png", alt: "Build 4 Photo 4" },
+      { src: "build4-photo5.png", alt: "Build 4 Photo 5" },
+      { src: "build4-photo6.png", alt: "Build 4 Photo 6" },
+      { src: "build4-photo7.png", alt: "Build 4 Photo 7" },
+      { src: "build4-photo8.png", alt: "Build 4 Photo 8" }
+    ],
     specs: [
       ["CPU", "Core Ultra 9 285K"],
       ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
-      ["Motherboard", "Asus ROG Maximus Z890 Extreme"],
+      ["Motherboard", "ASUS ROG MAXIMUS Z890 EXTREME"],
       ["RAM", "2x Corsair Dominator Titanium RGB 96GB (2x48GB) DDR5 7000MT/s CL40"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
       ["GPU", "Asus ROG Astral LC RTX 5090 32GB"],
       ["Case", "Asus ROG Strix Helios II"],
-      ["Power Supply", "Asus ROG Thor 1600W Titanium"]
+      ["Power Supply", "ASUS ROG Thor 1600W Titanium"]
     ]
   }
 };
