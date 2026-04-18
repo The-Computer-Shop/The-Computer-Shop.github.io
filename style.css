@@ -711,6 +711,13 @@ body.page-leaving {
   line-height: 1.1;
 }
 
+.build-price {
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 24px;
+}
+
 .build-specs-list p {
   font-size: 20px;
   line-height: 1.7;
