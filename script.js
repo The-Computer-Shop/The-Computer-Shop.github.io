@@ -557,8 +557,10 @@ document.addEventListener("copy", (event) => {
 
 document.addEventListener("keydown", (event) => {
   if (
+    event.key === "F12" ||
     event.key === "PrintScreen" ||
-    ((event.ctrlKey || event.metaKey) && ["s", "u", "c"].includes(event.key.toLowerCase()))
+    ((event.ctrlKey || event.metaKey) && ["s", "u", "c"].includes(event.key.toLowerCase())) ||
+    (event.ctrlKey && event.shiftKey && ["i", "j", "c"].includes(event.key.toLowerCase()))
   ) {
     event.preventDefault();
   }
