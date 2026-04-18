@@ -105,12 +105,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function populateBuildPage() {
     const titleElement = document.getElementById("build-title");
+    const priceElement = document.getElementById("build-price");
     const specsList = document.getElementById("build-specs-list");
     const carouselTrack = document.getElementById("build-carousel-track");
     const thumbnailsContainer = document.getElementById("build-thumbnails");
     const addToCartButton = document.getElementById("build-add-to-cart");
 
-    if (!titleElement || !specsList || !carouselTrack || !thumbnailsContainer || !addToCartButton) {
+    if (!titleElement || !priceElement || !specsList || !carouselTrack || !thumbnailsContainer || !addToCartButton) {
       return;
     }
 
@@ -130,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.title = build.title;
     titleElement.textContent = build.name;
+    priceElement.textContent = `${Number(build.price).toLocaleString()} EGP`;
 
     specsList.innerHTML = build.specs
       .map(([label, value]) => `<p><span>${label}:</span> ${value}</p>`)
