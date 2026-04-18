@@ -181,8 +181,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const priceMinLabel = document.getElementById("price-min-label");
   const priceMaxLabel = document.getElementById("price-max-label");
   const cards = document.querySelectorAll(".product-card");
-  const productsGrid = document.querySelector(".products-grid");
-  const sortOptions = document.querySelectorAll(".sort-option");
   const noResults = document.getElementById("no-results");
 
   const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
@@ -339,27 +337,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   applyFilters();
-
-  sortOptions.forEach((option) => {
-    option.addEventListener("click", () => {
-      if (!productsGrid || !cards.length) return;
-
-      const sortedCards = Array.from(cards).sort((a, b) => {
-        const priceA = Number(a.dataset.price || 0);
-        const priceB = Number(b.dataset.price || 0);
-
-        if (option.dataset.sort === "high-to-low") {
-          return priceB - priceA;
-        }
-
-        return priceA - priceB;
-      });
-
-      sortedCards.forEach((card) => {
-        productsGrid.appendChild(card);
-      });
-    });
-  });
 
   function getCart() {
     return JSON.parse(localStorage.getItem("cart") || "[]");
