@@ -388,15 +388,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   sortOptions.forEach((option) => {
     option.addEventListener("click", () => {
-      const selectedSort = option.dataset.sort;
+      showPageLoader();
 
-      if (selectedSort === "default") {
-        activeSort = "";
-      } else {
-        activeSort = selectedSort;
-      }
+      setTimeout(() => {
+        const selectedSort = option.dataset.sort;
 
-      applySort();
+        if (selectedSort === "default") {
+          activeSort = "";
+        } else {
+          activeSort = selectedSort;
+        }
+
+        applySort();
+        hidePageLoader();
+      }, 300);
     });
   });
 
