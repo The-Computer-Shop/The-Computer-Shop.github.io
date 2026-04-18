@@ -298,6 +298,44 @@ document.addEventListener("DOMContentLoaded", () => {
     input.addEventListener("change", applyFilters);
   });
 
+    function formatFilterPrice(value) {
+    return `${Number(value).toLocaleString()} EGP`;
+  }
+
+  function syncPriceInputs(changedInput) {
+    if (!priceMinInput || !priceMaxInput || !priceMinLabel || !priceMaxLabel) return;
+
+    let minValue = Number(priceMinInput.value);
+    let maxValue = Number(priceMaxInput.value);
+
+    if (minValue > maxValue) {
+      if (changedInput === priceMinInput) {
+        maxValue = minValue;
+        priceMaxInput.value = String(maxValue);
+      } else {
+        minValue = maxValue;
+        priceMinInput.value = String(minValue);
+      }
+    }
+
+    priceMinLabel.textContent = formatFilterPrice(minValue);
+    priceMaxLabel.textContent = formatFilterPrice(maxValue);
+  }
+
+  if (priceMinInput && priceMaxInput) {
+    syncPriceInputs();
+
+    priceMinInput.addEventListener("input", () => {
+      syncPriceInputs(priceMinInput);
+      applyFilters();
+    });
+
+    priceMaxInput.addEventListener("input", () => {
+      syncPriceInputs(priceMaxInput);
+      applyFilters();
+    });
+  }
+
   applyFilters();
 
   function getCart() {
