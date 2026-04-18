@@ -535,3 +535,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isManualCarousel) startAutoSlide();
   }
 });
+
+document.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
+
+document.addEventListener("dragstart", (event) => {
+  if (event.target.tagName === "IMG") {
+    event.preventDefault();
+  }
+});
+
+document.addEventListener("copy", (event) => {
+  const selection = window.getSelection().toString();
+  if (selection.length > 0) {
+    event.preventDefault();
+  }
+});
+
+document.addEventListener("keydown", (event) => {
+  if (
+    event.key === "PrintScreen" ||
+    ((event.ctrlKey || event.metaKey) && ["s", "u", "c"].includes(event.key.toLowerCase()))
+  ) {
+    event.preventDefault();
+  }
+});
