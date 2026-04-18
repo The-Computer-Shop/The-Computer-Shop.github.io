@@ -25,7 +25,7 @@ const BUILD_DETAILS = {
   build2: {
     id: "build2",
     name: "The Aorus Elite",
-    price: 195000,
+    price: 212000,
     image: "build2.png",
     url: "build.html?build=build2",
     title: "The Aorus Elite - The Computer Shop",
