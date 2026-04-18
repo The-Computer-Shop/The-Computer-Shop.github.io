@@ -665,8 +665,9 @@ body.page-leaving {
 
 .sort-button::after {
   content: "⌄";
-  font-size: 16px;
-  margin-left: 12px;
+  font-size: 14px;
+  position: absolute;
+  right: 14px;
 }
 
 .sort-menu {
