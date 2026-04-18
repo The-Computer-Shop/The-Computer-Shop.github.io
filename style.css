@@ -649,11 +649,12 @@ body.page-leaving {
   min-width: 220px;
   height: 48px;
   padding: 0 18px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  background: transparent;
-  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: #D8D7D7;
+  color: #111111;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
   display: flex;
