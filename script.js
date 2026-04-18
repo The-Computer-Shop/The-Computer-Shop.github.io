@@ -13,10 +13,10 @@ const BUILD_DETAILS = {
     ],
     specs: [
       ["CPU", "Intel Core Ultra 9 285K"],
-      ["GPU", "AORUS RTX 5090 XTREME WATERFORCE 32GB"],
+      ["GPU", "Aorus RTX 5090 Xtreme Waterforce 32GB"],
       ["RAM", "Corsair Dominator Titanium RGB 192GB (4x48GB) DDR5 7000MT/s CL40"],
-      ["Motherboard", "Gigabyte Z890 AORUS Master"],
-      ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
+      ["Motherboard", "Gigabyte Z890 Aorus Master"],
+      ["Cooler", "AORUS WATERFORCE II 360 ARGB"],
       ["Storage", "WD Black SN7100 500GB Gen4 NVMe"],
       ["Case", "Lian Li O11 Dynamic EVO XL"],
       ["Power Supply", "Gigabyte UD1600PM 1600W 80+ Platinum"]
@@ -36,13 +36,13 @@ const BUILD_DETAILS = {
     ],
     specs: [
       ["CPU", "Core Ultra 7 265K Tray"],
-      ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
-      ["Motherboard", "Gigabyte Z890 AORUS ELITE WIFI7"],
+      ["Cooler", "AORUS WATERFORCE II 360 ARGB"],
+      ["Motherboard", "Gigabyte Z890 Aorus Elite Wifi7"],
       ["RAM", "CORSAIR VENGEANCE 64GB 6600MT/s RGB (2x32GB)"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
-      ["GPU", "Gigabyte GeForce RTX 5070 Ti Gaming OC 16GB"],
+      ["GPU", "Gigabyte RTX 5070 Ti Gaming OC 16GB"],
       ["Case", "Lian Li O11 Dynamic EVO RGB"],
-      ["Power Supply", "P1000W 80+ Platinum AORUS ELITE Modular PCIe 5.0"]
+      ["Power Supply", "P1000W 80+ Platinum AORUS ELITE"]
     ]
   },
   build3: {
@@ -60,7 +60,7 @@ const BUILD_DETAILS = {
     specs: [
       ["CPU", "Core Ultra 5 245K Tray"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
-      ["Motherboard", "Gigabyte Z890 AORUS ELITE WIFI7"],
+      ["Motherboard", "Gigabyte Z890 Aorus Elite Wifi7"],
       ["RAM", "CORSAIR VENGEANCE RGB DDR5 48GB (2x24GB) 6000MT/s CL36"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
       ["GPU", "GIGABYTE AORUS RTX 5060 Ti Elite 16GB"],
@@ -83,12 +83,12 @@ const BUILD_DETAILS = {
     specs: [
       ["CPU", "Core Ultra 9 285K"],
       ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
-      ["Motherboard", "ASUS ROG MAXIMUS Z890 EXTREME"],
+      ["Motherboard", "Asus ROG Maximus Z890 Extreme"],
       ["RAM", "2x Corsair Dominator Titanium RGB 96GB (2x48GB) DDR5 7000MT/s CL40"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
-      ["GPU", "Asus ROG Astral 5090 32GB"],
-      ["Case", "Asus ROG Cronox"],
-      ["Power Supply", "ASUS ROG Thor 1600W Titanium"]
+      ["GPU", "Asus ROG Astral LC RTX 5090 32GB"],
+      ["Case", "Asus ROG Strix Helios II"],
+      ["Power Supply", "Asus ROG Thor 1600W Titanium"]
     ]
   }
 };
