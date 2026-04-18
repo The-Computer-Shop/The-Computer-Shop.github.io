@@ -58,7 +58,7 @@ const BUILD_DETAILS = {
       { src: "build3.png", alt: "Build 3 Photo 3" }
     ],
     specs: [
-      ["CPU", "Core Ultra 5 245KF Tray"],
+      ["CPU", "Core Ultra 5 245K Tray"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
       ["Motherboard", "Gigabyte Z890 AORUS ELITE WIFI7"],
       ["RAM", "CORSAIR VENGEANCE RGB DDR5 48GB (2x24GB) 6000MT/s CL36"],
