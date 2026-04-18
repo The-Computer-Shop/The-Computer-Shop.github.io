@@ -664,10 +664,7 @@ body.page-leaving {
 }
 
 .sort-button::after {
-  content: "⌄";
-  font-size: 14px;
-  position: absolute;
-  right: 14px;
+  content: none;
 }
 
 .sort-menu {
