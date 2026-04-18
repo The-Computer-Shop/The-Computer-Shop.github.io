@@ -536,9 +536,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener("contextmenu", (event) => {
+window.addEventListener("contextmenu", function (event) {
   event.preventDefault();
-});
+}, true);
 
 document.addEventListener("dragstart", (event) => {
   if (event.target.tagName === "IMG") {
