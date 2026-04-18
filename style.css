@@ -934,15 +934,10 @@ body.page-leaving {
 
 .cart-empty {
   display: none;
-  min-height: 50vh;
-  padding: 0;
+  padding: 22px;
   background: transparent;
   border: none;
   font-size: 18px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .cart-summary {
