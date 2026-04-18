@@ -13,7 +13,7 @@ const BUILD_DETAILS = {
     ],
     specs: [
       ["CPU", "Intel Core Ultra 9 285K"],
-      ["GPU", "Gigabyte AORUS RTX 5090 Master 32GB"],
+      ["GPU", "AORUS RTX 5090 XTREME WATERFORCE 32GB"],
       ["RAM", "Corsair Dominator Titanium RGB 192GB (4x48GB) DDR5 7000MT/s CL40"],
       ["Motherboard", "Gigabyte Z890 AORUS Master"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
