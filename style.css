@@ -1221,7 +1221,6 @@ body.page-leaving {
 img {
   -webkit-user-drag: none;
   user-select: none;
-  pointer-events: none;
 }
 
 .featured-image-frame,
