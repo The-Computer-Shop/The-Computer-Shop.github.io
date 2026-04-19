@@ -306,11 +306,24 @@ const noResults = document.getElementById("no-results");
     return `${Number(value).toLocaleString()} EGP`;
   }
 
+function parsePriceFieldValue(value) {
+  const cleanedValue = String(value).replace(/,/g, "").replace(/[^\d]/g, "");
+  return cleanedValue ? Number(cleanedValue) : 0;
+}
+
 function syncPriceInputs(changedInput) {
   if (!priceMinInput || !priceMaxInput || !priceMinField || !priceMaxField) return;
 
   let minValue = Number(priceMinInput.value);
   let maxValue = Number(priceMaxInput.value);
+
+  if (changedInput === priceMinField) {
+    minValue = parsePriceFieldValue(priceMinField.value);
+  }
+
+  if (changedInput === priceMaxField) {
+    maxValue = parsePriceFieldValue(priceMaxField.value);
+  }
 
   minValue = Math.max(0, Math.min(900000, minValue));
   maxValue = Math.max(0, Math.min(900000, maxValue));
@@ -318,17 +331,15 @@ function syncPriceInputs(changedInput) {
   if (minValue > maxValue) {
     if (changedInput === priceMinInput || changedInput === priceMinField) {
       maxValue = minValue;
-      priceMaxInput.value = String(maxValue);
     } else {
       minValue = maxValue;
-      priceMinInput.value = String(minValue);
     }
   }
 
   priceMinInput.value = String(minValue);
   priceMaxInput.value = String(maxValue);
-  priceMinField.value = String(minValue);
-  priceMaxField.value = String(maxValue);
+  priceMinField.value = minValue.toLocaleString();
+  priceMaxField.value = maxValue.toLocaleString();
 
   if (priceRangeActive) {
     const sliderMax = Number(priceMinInput.max) || 900000;
@@ -353,26 +364,24 @@ if (priceMinInput && priceMaxInput && priceMinField && priceMaxField) {
     applyFilters();
   });
 
-  priceMinField.addEventListener("change", () => {
-    priceMinInput.value = String(Number(priceMinField.value) || 0);
+  priceMinField.addEventListener("input", () => {
+    priceMinField.value = priceMinField.value.replace(/[^\d,]/g, "");
     syncPriceInputs(priceMinField);
     applyFilters();
   });
 
-  priceMaxField.addEventListener("change", () => {
-    priceMaxInput.value = String(Number(priceMaxField.value) || 0);
+  priceMaxField.addEventListener("input", () => {
+    priceMaxField.value = priceMaxField.value.replace(/[^\d,]/g, "");
     syncPriceInputs(priceMaxField);
     applyFilters();
   });
 
   priceMinField.addEventListener("blur", () => {
-    priceMinInput.value = String(Number(priceMinField.value) || 0);
     syncPriceInputs(priceMinField);
     applyFilters();
   });
 
   priceMaxField.addEventListener("blur", () => {
-    priceMaxInput.value = String(Number(priceMaxField.value) || 0);
     syncPriceInputs(priceMaxField);
     applyFilters();
   });
