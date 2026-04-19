@@ -606,6 +606,7 @@ body.page-leaving {
   background: #d8d7d7;
   border: 2px solid #2a2b2a;
   z-index: 4;
+  pointer-events: none;
 }
 
 .price-range-active::before {
