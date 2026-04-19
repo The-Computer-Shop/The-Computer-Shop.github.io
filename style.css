@@ -568,7 +568,11 @@ body.page-leaving {
 }
 
 .price-range-values input {
+  position: static;
   width: 120px;
+  height: auto;
+  opacity: 1;
+  pointer-events: auto;
   background: transparent;
   border: none;
   outline: none;
