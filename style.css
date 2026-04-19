@@ -569,6 +569,7 @@ body.page-leaving {
   position: relative;
   height: 40px;
   margin-top: 6px;
+  overflow: visible;
 }
 
 .price-range-track {
@@ -580,13 +581,36 @@ body.page-leaving {
   background: rgba(255, 255, 255, 0.22);
   border-radius: 999px;
 }
-
 .price-range-active {
   position: absolute;
+  left: 0;
+  width: 100%;
   top: 18px;
   height: 4px;
   background: #d8d7d7;
   border-radius: 999px;
+}
+
+.price-range-active::before,
+.price-range-active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #d8d7d7;
+  border: 2px solid #2a2b2a;
+}
+
+.price-range-active::before {
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.price-range-active::after {
+  right: 0;
+  transform: translate(50%, -50%);
 }
 
 .price-range-slider-wrap input[type="range"] {
