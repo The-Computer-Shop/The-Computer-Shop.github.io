@@ -575,7 +575,7 @@ body.page-leaving {
   left: 0;
   right: 0;
   top: 15px;
-  height: 6px;
+  height: 4px;
   background: rgba(255, 255, 255, 0.22);
   border-radius: 999px;
 }
@@ -585,8 +585,8 @@ body.page-leaving {
   left: 0;
   width: 100%;
   top: 15px;
-  height: 6px;
-  background: #2f89c9;
+  height: 4px;
+  background: #d8d7d7;
   border-radius: 999px;
 }
 
@@ -604,13 +604,13 @@ body.page-leaving {
 }
 
 .price-range-slider-wrap input[type="range"]::-webkit-slider-runnable-track {
-  height: 6px;
+  height: 4px;
   background: transparent;
   border-radius: 999px;
 }
 
 .price-range-slider-wrap input[type="range"]::-moz-range-track {
-  height: 6px;
+  height: 4px;
   background: transparent;
   border-radius: 999px;
 }
@@ -618,26 +618,24 @@ body.page-leaving {
 .price-range-slider-wrap input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
   border: none;
   border-radius: 50%;
-  background: #2f89c9;
+  background: #d8d7d7;
   cursor: pointer;
-  margin-top: -12px;
+  margin-top: -9px;
   pointer-events: auto;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
 }
 
 .price-range-slider-wrap input[type="range"]::-moz-range-thumb {
-  width: 30px;
-  height: 30px;
+  width: 22px;
+  height: 22px;
   border: none;
   border-radius: 50%;
-  background: #2f89c9;
+  background: #d8d7d7;
   cursor: pointer;
   pointer-events: auto;
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.08);
 }
 
 #price-min {
