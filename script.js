@@ -180,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const priceMaxInput = document.getElementById("price-max");
   const priceMinLabel = document.getElementById("price-min-label");
   const priceMaxLabel = document.getElementById("price-max-label");
+  const priceRangeActive = document.getElementById("price-range-active");
   const productsGrid = document.querySelector(".products-grid");
   const sortButton = document.getElementById("sort-button");
   const sortOptions = document.querySelectorAll(".sort-option");
