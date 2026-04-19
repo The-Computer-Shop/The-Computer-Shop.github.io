@@ -77,15 +77,16 @@
             <span class="chevron">⌄</span>
           </button>
           <div class="filter-content filter-content-price">
-            <div class="price-range-values">
-              <span id="price-min-label">0 EGP</span>
-              <span id="price-max-label">900,000 EGP</span>
-            </div>
+<div class="price-range-values">
+  <input type="number" id="price-min-field" min="0" max="900000" step="1" value="0">
+  <input type="number" id="price-max-field" min="0" max="900000" step="1" value="900000">
+</div>
+
 <div class="price-range-slider-wrap">
   <div class="price-range-track"></div>
   <div class="price-range-active" id="price-range-active"></div>
-  <input type="range" id="price-min" min="0" max="900000" step="1000" value="0">
-  <input type="range" id="price-max" min="0" max="900000" step="1000" value="900000">
+  <input type="range" id="price-min" min="0" max="900000" step="1" value="0">
+  <input type="range" id="price-max" min="0" max="900000" step="1" value="900000">
 </div>
           </div>
         </div>
