@@ -176,16 +176,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageLinks = document.querySelectorAll('a[href]');
   const toggles = document.querySelectorAll(".filter-toggle");
   const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
-  const priceMinInput = document.getElementById("price-min");
-  const priceMaxInput = document.getElementById("price-max");
-  const priceMinLabel = document.getElementById("price-min-label");
-  const priceMaxLabel = document.getElementById("price-max-label");
-  const priceRangeActive = document.getElementById("price-range-active");
-  const productsGrid = document.querySelector(".products-grid");
-  const sortButton = document.getElementById("sort-button");
-  const sortOptions = document.querySelectorAll(".sort-option");
-  const cards = document.querySelectorAll(".product-card");
-  const noResults = document.getElementById("no-results");
+const priceMinInput = document.getElementById("price-min");
+const priceMaxInput = document.getElementById("price-max");
+const priceMinField = document.getElementById("price-min-field");
+const priceMaxField = document.getElementById("price-max-field");
+const priceRangeActive = document.getElementById("price-range-active");
+const productsGrid = document.querySelector(".products-grid");
+const sortButton = document.getElementById("sort-button");
+const sortOptions = document.querySelectorAll(".sort-option");
+const cards = document.querySelectorAll(".product-card");
+const noResults = document.getElementById("no-results");
 
   const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
   const quantityControls = document.querySelectorAll(".quantity-control");
@@ -306,34 +306,39 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${Number(value).toLocaleString()} EGP`;
   }
 
-  function syncPriceInputs(changedInput) {
-    if (!priceMinInput || !priceMaxInput || !priceMinLabel || !priceMaxLabel) return;
+function syncPriceInputs(changedInput) {
+  if (!priceMinInput || !priceMaxInput || !priceMinField || !priceMaxField) return;
 
-    let minValue = Number(priceMinInput.value);
-    let maxValue = Number(priceMaxInput.value);
+  let minValue = Number(priceMinInput.value);
+  let maxValue = Number(priceMaxInput.value);
 
-    if (minValue > maxValue) {
-      if (changedInput === priceMinInput) {
-        maxValue = minValue;
-        priceMaxInput.value = String(maxValue);
-      } else {
-        minValue = maxValue;
-        priceMinInput.value = String(minValue);
-      }
-    }
+  minValue = Math.max(0, Math.min(900000, minValue));
+  maxValue = Math.max(0, Math.min(900000, maxValue));
 
-    priceMinLabel.textContent = formatFilterPrice(minValue);
-    priceMaxLabel.textContent = formatFilterPrice(maxValue);
-
-    if (priceRangeActive) {
-      const sliderMax = Number(priceMinInput.max) || 900000;
-      const leftPercent = (minValue / sliderMax) * 100;
-      const rightPercent = (maxValue / sliderMax) * 100;
-
-      priceRangeActive.style.left = `${leftPercent}%`;
-      priceRangeActive.style.width = `${rightPercent - leftPercent}%`;
+  if (minValue > maxValue) {
+    if (changedInput === priceMinInput || changedInput === priceMinField) {
+      maxValue = minValue;
+      priceMaxInput.value = String(maxValue);
+    } else {
+      minValue = maxValue;
+      priceMinInput.value = String(minValue);
     }
   }
+
+  priceMinInput.value = String(minValue);
+  priceMaxInput.value = String(maxValue);
+  priceMinField.value = String(minValue);
+  priceMaxField.value = String(maxValue);
+
+  if (priceRangeActive) {
+    const sliderMax = Number(priceMinInput.max) || 900000;
+    const leftPercent = (minValue / sliderMax) * 100;
+    const rightPercent = (maxValue / sliderMax) * 100;
+
+    priceRangeActive.style.left = `${leftPercent}%`;
+    priceRangeActive.style.width = `${rightPercent - leftPercent}%`;
+  }
+}
 
   if (priceMinInput && priceMaxInput) {
     syncPriceInputs();
