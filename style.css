@@ -555,6 +555,10 @@ body.page-leaving {
   padding-top: 10px;
 }
 
+.filter-item:has(.filter-content-price).open .filter-content {
+  overflow: visible;
+}
+
 .price-range-values {
   display: flex;
   align-items: center;
