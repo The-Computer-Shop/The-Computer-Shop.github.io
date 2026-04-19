@@ -340,19 +340,43 @@ function syncPriceInputs(changedInput) {
   }
 }
 
-  if (priceMinInput && priceMaxInput) {
-    syncPriceInputs();
+if (priceMinInput && priceMaxInput && priceMinField && priceMaxField) {
+  syncPriceInputs();
 
-    priceMinInput.addEventListener("input", () => {
-      syncPriceInputs(priceMinInput);
-      applyFilters();
-    });
+  priceMinInput.addEventListener("input", () => {
+    syncPriceInputs(priceMinInput);
+    applyFilters();
+  });
 
-    priceMaxInput.addEventListener("input", () => {
-      syncPriceInputs(priceMaxInput);
-      applyFilters();
-    });
-  }
+  priceMaxInput.addEventListener("input", () => {
+    syncPriceInputs(priceMaxInput);
+    applyFilters();
+  });
+
+  priceMinField.addEventListener("change", () => {
+    priceMinInput.value = String(Number(priceMinField.value) || 0);
+    syncPriceInputs(priceMinField);
+    applyFilters();
+  });
+
+  priceMaxField.addEventListener("change", () => {
+    priceMaxInput.value = String(Number(priceMaxField.value) || 0);
+    syncPriceInputs(priceMaxField);
+    applyFilters();
+  });
+
+  priceMinField.addEventListener("blur", () => {
+    priceMinInput.value = String(Number(priceMinField.value) || 0);
+    syncPriceInputs(priceMinField);
+    applyFilters();
+  });
+
+  priceMaxField.addEventListener("blur", () => {
+    priceMaxInput.value = String(Number(priceMaxField.value) || 0);
+    syncPriceInputs(priceMaxField);
+    applyFilters();
+  });
+}
 
   applyFilters();
 
