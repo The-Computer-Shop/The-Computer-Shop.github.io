@@ -176,11 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const pageLinks = document.querySelectorAll('a[href]');
   const toggles = document.querySelectorAll(".filter-toggle");
   const inputs = document.querySelectorAll('.filter-content input[type="checkbox"]');
-const priceMinInput = document.getElementById("price-min");
-const priceMaxInput = document.getElementById("price-max");
-const priceMinField = document.getElementById("price-min-field");
-const priceMaxField = document.getElementById("price-max-field");
-const priceRangeActive = document.getElementById("price-range-active");
 const productsGrid = document.querySelector(".products-grid");
 const sortButton = document.getElementById("sort-button");
 const sortOptions = document.querySelectorAll(".sort-option");
@@ -270,8 +265,6 @@ const noResults = document.getElementById("no-results");
     const selectedRam = getChecked("ram");
     const selectedCpu = getChecked("cpu");
     const selectedGpu = getChecked("gpu");
-    const selectedMinPrice = priceMinInput ? Number(priceMinInput.value) : 0;
-    const selectedMaxPrice = priceMaxInput ? Number(priceMaxInput.value) : 900000;
 
     let visible = 0;
 
@@ -279,14 +272,12 @@ const noResults = document.getElementById("no-results");
       const ram = card.dataset.ram;
       const cpu = card.dataset.cpu;
       const gpu = card.dataset.gpu;
-      const price = Number(card.dataset.price || 0);
 
       const ramMatch = selectedRam.length === 0 || selectedRam.includes(ram);
       const cpuMatch = selectedCpu.length === 0 || selectedCpu.includes(cpu);
       const gpuMatch = selectedGpu.length === 0 || selectedGpu.includes(gpu);
-      const priceMatch = price >= selectedMinPrice && price <= selectedMaxPrice;
 
-      const show = ramMatch && cpuMatch && gpuMatch && priceMatch;
+      const show = ramMatch && cpuMatch && gpuMatch;
 
       card.style.display = show ? "block" : "none";
 
@@ -301,91 +292,6 @@ const noResults = document.getElementById("no-results");
   inputs.forEach((input) => {
     input.addEventListener("change", applyFilters);
   });
-
-    function formatFilterPrice(value) {
-    return `${Number(value).toLocaleString()} EGP`;
-  }
-
-function parsePriceFieldValue(value) {
-  const cleanedValue = String(value).replace(/,/g, "").replace(/[^\d]/g, "");
-  return cleanedValue ? Number(cleanedValue) : 0;
-}
-
-function syncPriceInputs(changedInput) {
-  if (!priceMinInput || !priceMaxInput || !priceMinField || !priceMaxField) return;
-
-  let minValue = Number(priceMinInput.value);
-  let maxValue = Number(priceMaxInput.value);
-
-  if (changedInput === priceMinField) {
-    minValue = parsePriceFieldValue(priceMinField.value);
-  }
-
-  if (changedInput === priceMaxField) {
-    maxValue = parsePriceFieldValue(priceMaxField.value);
-  }
-
-  minValue = Math.max(0, Math.min(900000, minValue));
-  maxValue = Math.max(0, Math.min(900000, maxValue));
-
-  if (minValue > maxValue) {
-    if (changedInput === priceMinInput || changedInput === priceMinField) {
-      maxValue = minValue;
-    } else {
-      minValue = maxValue;
-    }
-  }
-
-  priceMinInput.value = String(minValue);
-  priceMaxInput.value = String(maxValue);
-  priceMinField.value = minValue.toLocaleString();
-  priceMaxField.value = maxValue.toLocaleString();
-
-  if (priceRangeActive) {
-    const sliderMax = Number(priceMinInput.max) || 900000;
-    const leftPercent = (minValue / sliderMax) * 100;
-    const rightPercent = (maxValue / sliderMax) * 100;
-
-    priceRangeActive.style.left = `${leftPercent}%`;
-    priceRangeActive.style.width = `${rightPercent - leftPercent}%`;
-  }
-}
-
-if (priceMinInput && priceMaxInput && priceMinField && priceMaxField) {
-  syncPriceInputs();
-
-  priceMinInput.addEventListener("input", () => {
-    syncPriceInputs(priceMinInput);
-    applyFilters();
-  });
-
-  priceMaxInput.addEventListener("input", () => {
-    syncPriceInputs(priceMaxInput);
-    applyFilters();
-  });
-
-  priceMinField.addEventListener("input", () => {
-    priceMinField.value = priceMinField.value.replace(/[^\d,]/g, "");
-    syncPriceInputs(priceMinField);
-    applyFilters();
-  });
-
-  priceMaxField.addEventListener("input", () => {
-    priceMaxField.value = priceMaxField.value.replace(/[^\d,]/g, "");
-    syncPriceInputs(priceMaxField);
-    applyFilters();
-  });
-
-  priceMinField.addEventListener("blur", () => {
-    syncPriceInputs(priceMinField);
-    applyFilters();
-  });
-
-  priceMaxField.addEventListener("blur", () => {
-    syncPriceInputs(priceMaxField);
-    applyFilters();
-  });
-}
 
   applyFilters();
 
