@@ -628,8 +628,8 @@ body.page-leaving {
   content: "";
   position: absolute;
   top: 50%;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: #d8d7d7;
   border: 2px solid #2a2b2a;
@@ -675,24 +675,24 @@ body.page-leaving {
 .price-range-slider-wrap input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 20px;
-  height: 20px;
-  margin-top: -8px;
+  width: 32px;
+  height: 32px;
+  margin-top: -14px;
   border-radius: 50%;
-  border: 2px solid #2a2b2a;
-  background: #d8d7d7;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  border: none;
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
   pointer-events: auto;
 }
 
 .price-range-slider-wrap input[type="range"]::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  border: 2px solid #2a2b2a;
-  background: #d8d7d7;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.18);
+  border: none;
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
   pointer-events: auto;
 }
