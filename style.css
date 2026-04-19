@@ -677,8 +677,8 @@ body.page-leaving {
   border-radius: 18px;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(6px);
-  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  transform: translateY(10px);
+  transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.32s ease;
   z-index: 20;
   overflow: hidden;
 }
