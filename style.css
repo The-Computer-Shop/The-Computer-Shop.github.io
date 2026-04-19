@@ -563,10 +563,34 @@ body.page-leaving {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
   margin-bottom: 18px;
+}
+
+.price-range-values input {
+  width: 120px;
+  background: transparent;
+  border: none;
+  outline: none;
   color: white;
   font-size: 18px;
   font-weight: 500;
+  font-family: inherit;
+}
+
+#price-max-field {
+  text-align: right;
+}
+
+.price-range-values input::-webkit-outer-spin-button,
+.price-range-values input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.price-range-values input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
 }
 
 .price-range-slider-wrap {
