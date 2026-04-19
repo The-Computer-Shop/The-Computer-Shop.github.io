@@ -570,6 +570,26 @@ body.page-leaving {
   height: 34px;
 }
 
+.price-range-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 15px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+}
+
+.price-range-active {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 15px;
+  height: 4px;
+  background: #d8d7d7;
+  border-radius: 999px;
+}
+
 .price-range-slider-wrap input[type="range"] {
   position: absolute;
   left: 0;
@@ -585,13 +605,13 @@ body.page-leaving {
 
 .price-range-slider-wrap input[type="range"]::-webkit-slider-runnable-track {
   height: 4px;
-  background: rgba(255, 255, 255, 0.22);
+  background: transparent;
   border-radius: 999px;
 }
 
 .price-range-slider-wrap input[type="range"]::-moz-range-track {
   height: 4px;
-  background: rgba(255, 255, 255, 0.22);
+  background: transparent;
   border-radius: 999px;
 }
 
@@ -618,15 +638,12 @@ body.page-leaving {
   pointer-events: auto;
 }
 
-.price-range-slider-wrap::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 15px;
-  height: 4px;
-  background: rgba(255, 255, 255, 0.22);
-  border-radius: 999px;
+#price-min {
+  z-index: 2;
+}
+
+#price-max {
+  z-index: 3;
 }
 
 .products-grid {
