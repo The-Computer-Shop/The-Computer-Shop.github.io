@@ -324,6 +324,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     priceMinLabel.textContent = formatFilterPrice(minValue);
     priceMaxLabel.textContent = formatFilterPrice(maxValue);
+
+    if (priceRangeActive) {
+      const sliderMax = Number(priceMinInput.max) || 900000;
+      const leftPercent = (minValue / sliderMax) * 100;
+      const rightPercent = (maxValue / sliderMax) * 100;
+
+      priceRangeActive.style.left = `${leftPercent}%`;
+      priceRangeActive.style.width = `${rightPercent - leftPercent}%`;
+    }
   }
 
   if (priceMinInput && priceMaxInput) {
