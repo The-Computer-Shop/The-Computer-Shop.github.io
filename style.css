@@ -1420,6 +1420,7 @@ img {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  border-radius: 16px;
 }
 
 .consultation-field select option {
