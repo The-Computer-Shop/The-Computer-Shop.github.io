@@ -35,7 +35,7 @@ const BUILD_DETAILS = {
       { src: "build2-case3.png", alt: "Build 2 Case Photo 3" }
     ],
     specs: [
-      ["CPU", "Core Ultra 7 265K Tray"],
+      ["CPU", "Core Ultra 7 265K"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB"],
       ["Motherboard", "Gigabyte Z890 Aorus Elite Wifi7"],
       ["RAM", "Corsair Dominator Titanium RGB 96GB (2x48GB) DDR5 @7000MT/s CL40"],
