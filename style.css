@@ -1370,6 +1370,7 @@ img {
   border: 1px solid rgba(255, 255, 255, 0.14);
   padding: 34px;
   background: rgba(255, 255, 255, 0.03);
+  border-radius: 24px;
 }
 
 .consultation-grid {
@@ -1405,6 +1406,7 @@ img {
   font-size: 16px;
   padding: 16px 18px;
   outline: none;
+  border-radius: 16px;
 }
 
 .consultation-field select {
