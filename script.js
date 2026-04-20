@@ -48,7 +48,7 @@ const BUILD_DETAILS = {
   build3: {
     id: "build3",
     name: "Aorus Core",
-    price: 116000,
+    price: 117000,
     image: "build3.png",
     url: "build.html?build=build3",
     title: "Aorus Core - The Computer Shop",
@@ -62,7 +62,7 @@ const BUILD_DETAILS = {
       { src: "build3-photo7.png", alt: "Build 3 Photo 7" }
     ],
     specs: [
-      ["CPU", "Core Ultra 5 245KF Tray"],
+      ["CPU", "Core Ultra 5 245K"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB AIO Cooler"],
       ["Motherboard", "Gigabyte Z890 AORUS ELITE WIFI7"],
       ["RAM", "CORSAIR VENGEANCE RGB DDR5 48GB (2x24GB) 6000MT/s CL36"],
