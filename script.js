@@ -38,7 +38,7 @@ const BUILD_DETAILS = {
       ["CPU", "Core Ultra 7 265K Tray"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB"],
       ["Motherboard", "Gigabyte Z890 Aorus Elite Wifi7"],
-      ["RAM", "CORSAIR VENGEANCE 64GB 6600MT/s RGB (2x32GB)"],
+      ["RAM", "Corsair Dominator Titanium RGB 96GB (2x48GB) DDR5 @7000MT/s CL40"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
       ["GPU", "Gigabyte RTX 5070 Ti Gaming OC 16GB"],
       ["Case", "Lian Li O11 Dynamic EVO RGB"],
