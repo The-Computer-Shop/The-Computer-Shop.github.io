@@ -74,11 +74,11 @@ const BUILD_DETAILS = {
   },
   build4: {
     id: "build4",
-    name: "ROG Astral",
+    name: "The ROG Helios",
     price: 553000,
     image: "build4.png",
     url: "build.html?build=build4",
-    title: "ROG Astral - The Computer Shop",
+    title: "The ROG Helios - The Computer Shop",
     photos: [
       { src: "build4.png", alt: "Build 4 Photo 1" },
       { src: "build4-photo2.png", alt: "Build 4 Photo 2" },
