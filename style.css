@@ -147,6 +147,98 @@ body.page-leaving {
   padding: 120px 0 100px;
 }
 
+.featured-builds-split {
+  padding: 120px 60px 100px;
+}
+
+.featured-builds-split-layout {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(360px, 0.9fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.featured-builds-main {
+  min-width: 0;
+}
+
+.featured-builds-split .featured-builds-header,
+.featured-builds-split .featured-carousel {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.featured-builds-split .featured-builds-header {
+  margin-bottom: 36px;
+}
+
+.featured-builds-split .featured-carousel-window {
+  width: 100%;
+  max-width: none;
+}
+
+.featured-builds-side {
+  padding-top: 68px;
+}
+
+.featured-consultation-card {
+  padding: 38px 34px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.featured-consultation-eyebrow {
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 16px;
+}
+
+.featured-consultation-card h2 {
+  font-size: 34px;
+  line-height: 1.12;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.featured-consultation-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 28px;
+}
+
+.featured-consultation-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 28px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: #d8d7d7;
+  color: #111111;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.featured-consultation-button:hover {
+  background: #cfcfcf;
+}
+
+.featured-consultation-button:active {
+  transform: translateY(1px);
+}
+
 .featured-builds-header {
   width: 100%;
   max-width: 1200px;
@@ -1174,7 +1266,8 @@ body.page-leaving {
   }
 
   .builds-layout,
-  .signature-layout {
+  .signature-layout,
+  .featured-builds-split-layout {
     grid-template-columns: 1fr;
   }
 
@@ -1185,6 +1278,10 @@ body.page-leaving {
 
   .featured-carousel-window {
     width: min(82%, 820px);
+  }
+
+  .featured-builds-side {
+    padding-top: 10px;
   }
 }
 
