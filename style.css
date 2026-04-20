@@ -1363,6 +1363,7 @@ img {
   color: white;
   font-size: 17px;
   line-height: 1.6;
+  border-radius: 18px;
 }
 
 .consultation-form {
