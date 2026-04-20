@@ -1302,12 +1302,14 @@ body.page-leaving {
   .text-box h1,
   .page-title,
   .featured-builds-header h2,
-  .featured-slide-info h3 {
+  .featured-slide-info h3,
+  .featured-consultation-card h2 {
     font-size: 34px;
   }
 
   .text-box p,
-  .featured-slide-info p {
+  .featured-slide-info p,
+  .featured-consultation-text {
     font-size: 18px;
   }
 
@@ -1332,12 +1334,28 @@ body.page-leaving {
     padding: 90px 0 70px;
   }
 
+  .featured-builds-split {
+    padding: 90px 25px 70px;
+  }
+
   .featured-builds-header {
     padding: 0 25px;
   }
 
+  .featured-builds-split .featured-builds-header {
+    padding: 0;
+  }
+
   .featured-carousel-window {
     width: calc(100% - 50px);
+  }
+
+  .featured-builds-split .featured-carousel-window {
+    width: 100%;
+  }
+
+  .featured-consultation-card {
+    padding: 28px 24px;
   }
 
   .carousel-arrow {
