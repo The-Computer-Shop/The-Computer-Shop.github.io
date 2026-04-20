@@ -1421,11 +1421,13 @@ img {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 16px;
+  overflow: hidden;
 }
 
 .consultation-field select option {
   background: #2a2b2a;
   color: white;
+  border-radius: 12px;
 }
 
 .consultation-field textarea {
