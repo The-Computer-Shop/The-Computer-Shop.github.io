@@ -1396,7 +1396,6 @@ img {
 }
 
 .consultation-field input,
-.consultation-field select,
 .consultation-field textarea {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -1405,6 +1404,21 @@ img {
   font-size: 16px;
   padding: 16px 18px;
   outline: none;
+}
+
+.consultation-field select {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #000000;
+  color: white;
+  font-size: 16px;
+  padding: 16px 18px;
+  outline: none;
+}
+
+.consultation-field select option {
+  background: #000000;
+  color: white;
 }
 
 .consultation-field textarea {
