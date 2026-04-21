@@ -1067,6 +1067,42 @@ body.page-leaving {
   color: rgba(255, 255, 255, 0.88);
 }
 
+.cart-quantity-control {
+  margin-top: 18px;
+  width: fit-content;
+  height: 46px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cart-quantity-button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.cart-quantity-button:hover {
+  opacity: 0.72;
+}
+
+.cart-quantity-value {
+  min-width: 22px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
 .cart-item-side {
   text-align: right;
   display: flex;
