@@ -411,16 +411,17 @@ const noResults = document.getElementById("no-results");
       const article = document.createElement("article");
       article.className = "cart-item";
       article.innerHTML = `
+      article.innerHTML = `
         <img class="cart-item-image" src="${item.image}" alt="${item.name}">
         <div class="cart-item-info">
           <a class="cart-item-name" href="${item.url}">${item.name}</a>
           <div class="cart-item-meta">
             Unit Price: ${formatPrice(item.price)}
           </div>
-          <div class="cart-quantity-control">
-            <button class="cart-quantity-button cart-quantity-minus" type="button" data-id="${item.id}" aria-label="Decrease quantity">−</button>
-            <span class="cart-quantity-value">${item.quantity}</span>
-            <button class="cart-quantity-button cart-quantity-plus" type="button" data-id="${item.id}" aria-label="Increase quantity">+</button>
+          <div class="quantity-control cart-quantity-control">
+            <button class="quantity-button cart-quantity-minus" type="button" data-id="${item.id}" aria-label="Decrease quantity">−</button>
+            <input class="quantity-value cart-quantity-value" type="text" value="${item.quantity}" readonly aria-label="Quantity">
+            <button class="quantity-button cart-quantity-plus" type="button" data-id="${item.id}" aria-label="Increase quantity">+</button>
           </div>
         </div>
         <div class="cart-item-side">
@@ -451,11 +452,11 @@ const noResults = document.getElementById("no-results");
         showPageLoader();
 
         setTimeout(() => {
-          const updatedCart = getCart().map((item) =>
-            item.id === button.dataset.id
-              ? { ...item, quantity: Math.max(1, item.quantity - 1) }
-              : item
-          );
+          const updatedCart = getCart().flatMap((item) => {
+            if (item.id !== button.dataset.id) return [item];
+            if (item.quantity === 1) return [];
+            return [{ ...item, quantity: item.quantity - 1 }];
+          });
 
           setCart(updatedCart);
           renderCart();
