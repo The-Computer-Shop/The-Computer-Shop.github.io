@@ -411,7 +411,6 @@ const noResults = document.getElementById("no-results");
       const article = document.createElement("article");
       article.className = "cart-item";
       article.innerHTML = `
-      article.innerHTML = `
         <img class="cart-item-image" src="${item.image}" alt="${item.name}">
         <div class="cart-item-info">
           <a class="cart-item-name" href="${item.url}">${item.name}</a>
