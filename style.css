@@ -1217,7 +1217,8 @@ body.page-leaving {
 
 .about-section {
   background: #2a2b2a;
-  padding: 10px 60px 110px;
+  padding: 36px 60px 110px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .about-section-inner {
