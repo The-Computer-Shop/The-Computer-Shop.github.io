@@ -412,11 +412,15 @@ const noResults = document.getElementById("no-results");
       article.className = "cart-item";
       article.innerHTML = `
         <img class="cart-item-image" src="${item.image}" alt="${item.name}">
-        <div>
+        <div class="cart-item-info">
           <a class="cart-item-name" href="${item.url}">${item.name}</a>
           <div class="cart-item-meta">
-            Quantity: ${item.quantity}<br>
             Unit Price: ${formatPrice(item.price)}
+          </div>
+          <div class="cart-quantity-control">
+            <button class="cart-quantity-button cart-quantity-minus" type="button" data-id="${item.id}" aria-label="Decrease quantity">−</button>
+            <span class="cart-quantity-value">${item.quantity}</span>
+            <button class="cart-quantity-button cart-quantity-plus" type="button" data-id="${item.id}" aria-label="Increase quantity">+</button>
           </div>
         </div>
         <div class="cart-item-side">
@@ -429,7 +433,6 @@ const noResults = document.getElementById("no-results");
 
     cartTotal.textContent = formatPrice(total);
     renderCartBadge();
-
     document.querySelectorAll(".cart-remove-button").forEach((button) => {
       button.addEventListener("click", () => {
         showPageLoader();
@@ -440,6 +443,42 @@ const noResults = document.getElementById("no-results");
           renderCart();
           hidePageLoader();
         }, 500);
+      });
+    });
+
+    document.querySelectorAll(".cart-quantity-minus").forEach((button) => {
+      button.addEventListener("click", () => {
+        showPageLoader();
+
+        setTimeout(() => {
+          const updatedCart = getCart().map((item) =>
+            item.id === button.dataset.id
+              ? { ...item, quantity: Math.max(1, item.quantity - 1) }
+              : item
+          );
+
+          setCart(updatedCart);
+          renderCart();
+          hidePageLoader();
+        }, 300);
+      });
+    });
+
+    document.querySelectorAll(".cart-quantity-plus").forEach((button) => {
+      button.addEventListener("click", () => {
+        showPageLoader();
+
+        setTimeout(() => {
+          const updatedCart = getCart().map((item) =>
+            item.id === button.dataset.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          );
+
+          setCart(updatedCart);
+          renderCart();
+          hidePageLoader();
+        }, 300);
       });
     });
   }
