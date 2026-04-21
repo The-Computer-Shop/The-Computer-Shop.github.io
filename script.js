@@ -93,7 +93,7 @@ const BUILD_DETAILS = {
       ["CPU", "Core Ultra 9 285K"],
       ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
       ["Motherboard", "ASUS ROG MAXIMUS Z890 EXTREME"],
-      ["RAM", "2x Corsair Dominator Titanium RGB 96GB (2x48GB) DDR5 7000MT/s CL40"],
+      ["RAM", "Corsair Dominator Titanium RGB 192GB (4x48GB) DDR5 7000MT/s CL40"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
       ["GPU", "Asus ROG Astral LC RTX 5090 32GB"],
       ["Case", "Asus ROG Strix Helios II"],
