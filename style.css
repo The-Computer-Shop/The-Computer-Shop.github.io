@@ -287,6 +287,11 @@ body.page-leaving {
   background: rgba(255, 255, 255, 0.03);
 }
 
+.featured-image-link {
+  display: block;
+  text-decoration: none;
+}
+
 .featured-image-frame img {
   width: 100%;
   display: block;
