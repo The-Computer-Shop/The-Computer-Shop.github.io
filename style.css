@@ -156,7 +156,7 @@ body.page-leaving {
   margin: 0 auto;
   display: grid;
   grid-template-columns: minmax(0, 1.65fr) minmax(360px, 0.9fr);
-  gap: 48px;
+  gap: 78px;
   align-items: start;
 }
 
@@ -181,7 +181,7 @@ body.page-leaving {
 }
 
 .featured-builds-side {
-  padding-top: 68px;
+  padding-top: 82px;
 }
 
 .featured-consultation-card {
