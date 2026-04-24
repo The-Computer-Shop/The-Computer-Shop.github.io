@@ -14,7 +14,7 @@ const BUILD_DETAILS = {
     specs: [
       ["CPU", "Intel Core Ultra 9 285K"],
       ["GPU", "Aorus RTX 5090 Xtreme Waterforce 32GB"],
-      ["RAM", "Corsair Dominator Titanium RGB 192GB (4x48GB) DDR5 7000MT/s CL40"],
+      ["RAM", "Corsair Dominator Titanium RGB 192GB (4x48GB) DDR5 7000MT/s"],
       ["Motherboard", "Gigabyte Z890 Aorus Master"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB"],
       ["Storage", "WD Black SN7100 500GB Gen4 NVMe"],
@@ -38,7 +38,7 @@ const BUILD_DETAILS = {
       ["CPU", "Core Ultra 7 265K"],
       ["Cooler", "AORUS WATERFORCE II 360 ARGB"],
       ["Motherboard", "Gigabyte Z890 Aorus Elite Wifi7"],
-      ["RAM", "Corsair Dominator Titanium RGB 96GB (2x48GB) DDR5 7000MT/s CL40"],
+      ["RAM", "Corsair Dominator Titanium RGB 96GB (2x48GB) DDR5 7000MT/s"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
       ["GPU", "Gigabyte RTX 5070 Ti Gaming OC 16GB"],
       ["Case", "Lian Li O11 Dynamic EVO RGB"],
@@ -93,7 +93,7 @@ const BUILD_DETAILS = {
       ["CPU", "Core Ultra 9 285K"],
       ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
       ["Motherboard", "ASUS ROG MAXIMUS Z890 EXTREME"],
-      ["RAM", "Corsair Dominator Titanium RGB 192GB (4x48GB) DDR5 7000MT/s CL40"],
+      ["RAM", "Corsair Dominator Titanium RGB 192GB (4x48GB) DDR5 7000MT/s"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
       ["GPU", "Asus ROG Astral LC RTX 5090 32GB"],
       ["Case", "Asus ROG Strix Helios II"],
@@ -103,7 +103,7 @@ const BUILD_DETAILS = {
   build5: {
     id: "build5",
     name: "The Asus Strix",
-    price: 209039,
+    price: 214000,
     image: "build5.png",
     url: "build.html?build=build5",
     title: "The Asus Strix - The Computer Shop",
@@ -117,7 +117,7 @@ const BUILD_DETAILS = {
       { src: "build5-photo7.png", alt: "Build 5 Photo 7" }
     ],
     specs: [
-      ["CPU", "Core Ultra 7 265K Tray"],
+      ["CPU", "Core Ultra 7 265K"],
       ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
       ["Motherboard", "ASUS ROG Maximus Z890 Hero"],
       ["RAM", "Corsair Vengeance RGB 64GB (2x32GB) 6000MT/s"],
