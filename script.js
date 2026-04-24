@@ -99,6 +99,33 @@ const BUILD_DETAILS = {
       ["Case", "Asus ROG Strix Helios II"],
       ["Power Supply", "ASUS ROG Thor 1600W Titanium"]
     ]
+  },
+  build5: {
+    id: "build5",
+    name: "The Asus Strix",
+    price: 209039,
+    image: "build5.png",
+    url: "build.html?build=build5",
+    title: "The Asus Strix - The Computer Shop",
+    photos: [
+      { src: "build5.png", alt: "Build 5 Photo 1" },
+      { src: "build5-photo2.png", alt: "Build 5 Photo 2" },
+      { src: "build5-photo3.png", alt: "Build 5 Photo 3" },
+      { src: "build5-photo4.png", alt: "Build 5 Photo 4" },
+      { src: "build5-photo5.png", alt: "Build 5 Photo 5" },
+      { src: "build5-photo6.png", alt: "Build 5 Photo 6" },
+      { src: "build5-photo7.png", alt: "Build 5 Photo 7" }
+    ],
+    specs: [
+      ["CPU", "Core Ultra 7 265K Tray"],
+      ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
+      ["Motherboard", "ASUS ROG Maximus Z890 Hero"],
+      ["RAM", "Corsair Vengeance RGB 64GB (2x32GB) 6000MT/s"],
+      ["Storage", "WD Black SN7100 500GB NVMe"],
+      ["GPU", "ROG Strix GeForce RTX 5070 Ti 16GB"],
+      ["Case", "Corsair 6500D Airflow"],
+      ["Power Supply", "ASUS ROG STRIX 1000W Platinum"]
+    ]
   }
 };
 
