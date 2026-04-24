@@ -103,7 +103,7 @@ const BUILD_DETAILS = {
   build5: {
     id: "build5",
     name: "The Asus Strix",
-    price: 214000,
+    price: 209039,
     image: "build5.png",
     url: "build.html?build=build5",
     title: "The Asus Strix - The Computer Shop",
@@ -117,7 +117,7 @@ const BUILD_DETAILS = {
       { src: "build5-photo7.png", alt: "Build 5 Photo 7" }
     ],
     specs: [
-      ["CPU", "Core Ultra 7 265K"],
+      ["CPU", "Core Ultra 7 265K Tray"],
       ["Cooler", "Asus ROG Ryujin III 360 ARGB Extreme"],
       ["Motherboard", "ASUS ROG Maximus Z890 Hero"],
       ["RAM", "Corsair Vengeance RGB 64GB (2x32GB) 6000MT/s"],
@@ -125,6 +125,33 @@ const BUILD_DETAILS = {
       ["GPU", "ROG Strix GeForce RTX 5070 Ti 16GB"],
       ["Case", "Corsair 6500D Airflow"],
       ["Power Supply", "ASUS ROG STRIX 1000W Platinum"]
+    ]
+  },
+  build6: {
+    id: "build6",
+    name: "The Asus TUF",
+    price: 123000,
+    image: "build6.png",
+    url: "build.html?build=build6",
+    title: "The Asus TUF - The Computer Shop",
+    photos: [
+      { src: "build6.png", alt: "Build 6 Photo 1" },
+      { src: "build6-photo2.png", alt: "Build 6 Photo 2" },
+      { src: "build6-photo3.png", alt: "Build 6 Photo 3" },
+      { src: "build6-photo4.png", alt: "Build 6 Photo 4" },
+      { src: "build6-photo5.png", alt: "Build 6 Photo 5" },
+      { src: "build6-photo6.png", alt: "Build 6 Photo 6" },
+      { src: "build6-photo7.png", alt: "Build 6 Photo 7" }
+    ],
+    specs: [
+      ["CPU", "Core Ultra 5 245K"],
+      ["Cooler", "Asus TUF Gaming LC III 360 ARGB LCD AIO"],
+      ["Motherboard", "ASUS TUF GAMING Z890-PLUS WIFI 7"],
+      ["RAM", "CORSAIR VENGEANCE RGB DDR5 48GB (2x24GB) 6000MT/s"],
+      ["Storage", "WD Black SN7100 500GB NVMe"],
+      ["GPU", "Asus TUF GAMING OC GeForce RTX 5060 Ti 16GB"],
+      ["Case", "Asus TUF Gaming GT502"],
+      ["Power Supply", "ASUS ROG Thor 850W Platinum II"]
     ]
   }
 };
