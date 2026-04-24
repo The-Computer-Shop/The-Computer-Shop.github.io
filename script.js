@@ -134,15 +134,14 @@ const BUILD_DETAILS = {
     image: "build6.png",
     url: "build.html?build=build6",
     title: "The Asus TUF - The Computer Shop",
-    photos: [
-      { src: "build6.png", alt: "Build 6 Photo 1" },
-      { src: "build6-photo2.png", alt: "Build 6 Photo 2" },
-      { src: "build6-photo3.png", alt: "Build 6 Photo 3" },
-      { src: "build6-photo4.png", alt: "Build 6 Photo 4" },
-      { src: "build6-photo5.png", alt: "Build 6 Photo 5" },
-      { src: "build6-photo6.png", alt: "Build 6 Photo 6" },
-      { src: "build6-photo7.png", alt: "Build 6 Photo 7" }
-    ],
+photos: [
+  { src: "build6.png", alt: "Build 6 Photo 1" },
+  { src: "build6-photo2.png", alt: "Build 6 Photo 2" },
+  { src: "build6-photo3.png", alt: "Build 6 Photo 3" },
+  { src: "build6-photo4.png", alt: "Build 6 Photo 4" },
+  { src: "build6-photo5.png", alt: "Build 6 Photo 5" },
+  { src: "build6-photo6.png", alt: "Build 6 Photo 6" }
+],
     specs: [
       ["CPU", "Core Ultra 5 245K"],
       ["Cooler", "Asus TUF Gaming LC III 360 ARGB LCD AIO"],
