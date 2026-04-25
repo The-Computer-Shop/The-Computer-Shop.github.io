@@ -129,25 +129,28 @@ const BUILD_DETAILS = {
   },
   build6: {
     id: "build6",
-    name: "The Aorus Lite",
-    price: 64248,
+    name: "The Asus TUF",
+    price: 123000,
     image: "build6.png",
     url: "build.html?build=build6",
-    title: "The Aorus Lite - The Computer Shop",
+    title: "The Asus TUF - The Computer Shop",
     photos: [
       { src: "build6.png", alt: "Build 6 Photo 1" },
       { src: "build6-photo2.png", alt: "Build 6 Photo 2" },
-      { src: "build6-photo3.png", alt: "Build 6 Photo 3" }
+      { src: "build6-photo3.png", alt: "Build 6 Photo 3" },
+      { src: "build6-photo4.png", alt: "Build 6 Photo 4" },
+      { src: "build6-photo5.png", alt: "Build 6 Photo 5" },
+      { src: "build6-photo6.png", alt: "Build 6 Photo 6" }
     ],
     specs: [
-      ["CPU", "Core Ultra 5 245KF"],
-      ["Cooler", "CoolerMaster MasterLiquid 360L Core"],
-      ["Motherboard", "GIGABYTE B860M AORUS ELITE WIFI6E"],
-      ["RAM", "Kingston FURY Beast DDR5 16GB 6000MT/s CL36"],
+      ["CPU", "Core Ultra 5 245K"],
+      ["Cooler", "Asus TUF Gaming LC III 360 ARGB LCD AIO"],
+      ["Motherboard", "ASUS TUF GAMING Z890-PLUS WIFI 7"],
+      ["RAM", "CORSAIR VENGEANCE RGB DDR5 48GB (2x24GB) 6000MT/s"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
-      ["GPU", "RTX 5050 GAMING OC 8GB"],
-      ["Case", "Lian Li Vector V100R"],
-      ["Power Supply", "RB750 750W 80 Plus Bronze"]
+      ["GPU", "Asus TUF GAMING OC GeForce RTX 5060 Ti 16GB"],
+      ["Case", "Asus TUF Gaming GT502"],
+      ["Power Supply", "ASUS ROG Thor 850W Platinum II"]
     ]
   }
 };
