@@ -1956,11 +1956,18 @@ img {
 
 .checkout-helper-link,
 .checkout-helper-link:visited,
-.checkout-helper-link:hover,
 .checkout-helper-link:active {
   color: inherit;
-  text-decoration: none;
+  text-decoration: underline;
   font: inherit;
+  transition: opacity 0.2s ease;
+}
+
+.checkout-helper-link:hover {
+  color: inherit;
+  text-decoration: underline;
+  font: inherit;
+  opacity: 0.72;
 }
 
 .checkout-submit-button {
