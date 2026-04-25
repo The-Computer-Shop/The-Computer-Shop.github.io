@@ -1954,6 +1954,15 @@ img {
   color: rgba(255, 255, 255, 0.66);
 }
 
+.checkout-helper-link,
+.checkout-helper-link:visited,
+.checkout-helper-link:hover,
+.checkout-helper-link:active {
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+}
+
 .checkout-submit-button {
   margin-top: 28px;
   width: 100%;
