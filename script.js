@@ -152,6 +152,29 @@ const BUILD_DETAILS = {
       ["Case", "Asus TUF Gaming GT502"],
       ["Power Supply", "ASUS ROG Thor 850W Platinum II"]
     ]
+  },
+  build7: {
+    id: "build7",
+    name: "The Lian Li Vector",
+    price: 64248,
+    image: "build7.png",
+    url: "build.html?build=build7",
+    title: "The Lian Li Vector - The Computer Shop",
+    photos: [
+      { src: "build7.png", alt: "Build 7 Photo 1" },
+      { src: "build7-photo2.png", alt: "Build 7 Photo 2" },
+      { src: "build7-photo3.png", alt: "Build 7 Photo 3" }
+    ],
+    specs: [
+      ["CPU", "Core Ultra 5 245KF"],
+      ["Cooler", "CoolerMaster MasterLiquid 360L Core"],
+      ["Motherboard", "GIGABYTE B860M AORUS ELITE WIFI6E"],
+      ["RAM", "Kingston FURY Beast DDR5 16GB 6000MT/s CL36"],
+      ["Storage", "WD Black SN7100 500GB NVMe"],
+      ["GPU", "RTX 5050 GAMING OC 8GB"],
+      ["Case", "Lian Li Vector V100R"],
+      ["Power Supply", "RB750 750W 80 Plus Bronze"]
+    ]
   }
 };
 
