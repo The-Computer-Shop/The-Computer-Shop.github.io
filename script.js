@@ -235,8 +235,9 @@ const sortOptions = document.querySelectorAll(".sort-option");
 const cards = document.querySelectorAll(".product-card");
 const noResults = document.getElementById("no-results");
 
-  const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
-  const quantityControls = document.querySelectorAll(".quantity-control");
+const addToCartButtons = document.querySelectorAll(".add-to-cart-button");
+const buyNowButtons = document.querySelectorAll(".buy-now-button");
+const quantityControls = document.querySelectorAll(".quantity-control");
 
   const cartItemsContainer = document.getElementById("cart-items");
   const cartEmpty = document.getElementById("cart-empty");
@@ -677,6 +678,40 @@ const noResults = document.getElementById("no-results");
           button.textContent = "Add to Cart";
         }, 3000);
       }, 500);
+    });
+  });
+
+  buyNowButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      showPageLoader();
+
+      setTimeout(() => {
+        const addToCartButton = document.getElementById("build-add-to-cart");
+        const purchaseActions = button.closest(".purchase-actions");
+        const quantityValue = purchaseActions?.querySelector(".quantity-value");
+        const selectedQuantity = Math.max(1, Number(quantityValue?.value || 1));
+
+        if (!addToCartButton) {
+          hidePageLoader();
+          return;
+        }
+
+        const checkoutCart = [
+          {
+            id: addToCartButton.dataset.id,
+            name: addToCartButton.dataset.name,
+            price: Number(addToCartButton.dataset.price),
+            image: addToCartButton.dataset.image,
+            url: addToCartButton.dataset.url,
+            quantity: selectedQuantity
+          }
+        ];
+
+        setCart(checkoutCart);
+        renderCart();
+        hidePageLoader();
+        window.location.href = "checkout.html";
+      }, 300);
     });
   });
 
