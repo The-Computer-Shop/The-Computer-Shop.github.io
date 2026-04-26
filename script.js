@@ -159,7 +159,7 @@ const BUILD_DETAILS = {
     price: 66000,
     image: "build7.png",
     url: "build.html?build=build7",
-    title: "The Lian Li Vector - The Computer Shop",
+    title: "The PS5 Pro Killer - The Computer Shop",
     photos: [
       { src: "build7.png", alt: "Build 7 Photo 1" },
       { src: "build7-photo2.png", alt: "Build 7 Photo 2" },
