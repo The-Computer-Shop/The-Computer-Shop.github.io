@@ -169,7 +169,7 @@ const BUILD_DETAILS = {
       ["CPU", "Core Ultra 5 245KF"],
       ["Cooler", "CoolerMaster MasterLiquid 360L Core"],
       ["Motherboard", "GIGABYTE B860M AORUS ELITE WIFI6E"],
-      ["RAM", "Kingston FURY Beast DDR5 16GB 6000MT/s CL36"],
+      ["RAM", "Kingston FURY Beast DDR5 16GB 6000MT/s"],
       ["Storage", "WD Black SN7100 500GB NVMe"],
       ["GPU", "RTX 5050 GAMING OC 8GB"],
       ["Case", "Lian Li Vector V100R"],
